@@ -1,3 +1,5 @@
+import { canvas } from "./main.js";
+
 const referenceWidth = 1920;
 const referenceHeight = 1080;
 
