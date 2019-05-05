@@ -18,7 +18,7 @@ export function draw(delta) {
     canvas.height = windowHeight;
 
     const content = canvas.getContext("2d");
-    content.fillRect(getScaledValue(50),getScaledValue(50), getScaledValue(100), getScaledValue(100))
+    content.fillRect(getScaledValue(250),getScaledValue(250), getScaledValue(300), getScaledValue(300))
 
 }
 
