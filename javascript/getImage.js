@@ -1,7 +1,7 @@
 /**
  * @returns {Array} return array of Image obj
  */
-export function getHomeImages(){
+export function getHomePageImages(){
     const numOfImg = homeImages.length;
     let images = [];
     for(let i = 0; i < numOfImg ; i++){
