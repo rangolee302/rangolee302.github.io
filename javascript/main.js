@@ -1,9 +1,6 @@
-import {
-    draw
-} from "./draw";
-import {
-    getHomeImages
-} from "./getImage";
+
+import { getHomeImages } from "./getImage.js";
+import { draw } from "./draw.js";
 
 export const canvas = document.querySelector("canvas");
 export const content = canvas.getContext("2d");
