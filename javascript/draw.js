@@ -11,8 +11,9 @@ export function getScaledValue(value) {
 }
 
 export function draw(delta) {
-    console.log("drawing");
-
+    const windowWidth = document.documentElement.clientWidth;
+    const windowHeight = document.documentElement.clientHeight;
+    
     canvas.width = windowWidth;
     canvas.height = windowHeight;
 
