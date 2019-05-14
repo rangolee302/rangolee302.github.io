@@ -1,6 +1,6 @@
 
 import {
-    getHomePageImages, getImages, imageBase
+    getImages, imageBase
 } from "./getImage.js";
 import { draw } from "./draw.js";
 
