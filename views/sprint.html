@@ -61,6 +61,7 @@
     <script>
       const itemBG = "bg-danger";
       const itemTextColor = "text-white";
+      const timeTextColor = "text-white";
       const childrenBG = "bg-danger";
       const childrenTextColor = "text-dark";
       const content = [
@@ -122,10 +123,10 @@
 
 
         const layout = `
-        <a href="" class="${itemBG} ${itemTextColor} list-group-item list-group-item-action flex-column align-items-start">
+        <a href="" class="${itemBG} ${itemTextColor} my-4 list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">${item.title}</h5>
-            <small class="text-muted">1 minute ago</small>
+            <small class="${timeTextColor}">1 minute ago</small>
           </div>
           <p class="mb-1">${childrenContent}</p>
           <small class="text-muted"></small>
