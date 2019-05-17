@@ -59,26 +59,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+      const itemBG = "bg-danger";
+      const itemTextColor = "text-white";
+      const childrenBG = "bg-danger";
+      const childrenTextColor = "text-dark";
       const content = [
         {
           title :"Product backlog grooming with PO",
-          content : "",
-        },
+          content : [
+            ],
+          },
         {
           title: "Baccarat Fortune 1.0 Upgrade",
-          content: "",
+          content: [
+            "Wild treasure promotion event support (Start from 1 May, 2019)",,
+            "Translation & UI Refine",
+            "Reward Bar integration with General Reminder",
+            "Incentive API and Game Server Update"
+          ],
         },
         {
           title: "Baccarat Fortune GT Version Preparation",
-          content: "",
+          content: [
+            "Client game API preparation",
+            "New UI design",
+            // `<a href="http://hkoconfluence.gameassists.net:8090/download/attachments/90865742/BACfortune_AwardPage_step1%28NEW%29.png?version=1&modificationDate=1558059449258&api=v2">link</a>`
+          ],
         },
         {
           title: "Misc. Technical Task",
-          content: "",
+          content: [
+            "New Align component design",
+            "RichTiLabel Design",
+            "Multiple style in single line text",
+            // `<div><a href="http://hkoconfluence.gameassists.net:8090/display/HB/3.+Client+Side+Technical+Design">link</a></div >`
+          ],
         },
         {
           title: "Testing",
-          content: "",
+          content: [
+            "Baccarat Fortune 1.0 Translation & UI Refinement",
+            "Incentive API and Client Type ID support",
+            "Baccarat Fortune Reward Bar integration with General Reminder "
+          ],
         }
       ];
 
@@ -87,14 +110,25 @@
 
       for(let i = 0; i < length; i++){
         const item = content[i];
+        const childList = item.content;
+
+        const childrenLength = childList.length;
+        let childrenContent = `<ul class="${childrenBG} ${childrenTextColor} list-group">`;
+        for (let j = 0; j < childrenLength; j++) {
+          childrenContent += `  <li class="list-group-item">${childList[j]}</li>`;
+        }
+        childrenContent += `</ul>`;
+
+
+
         const layout = `
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <a href="" class="${itemBG} ${itemTextColor} list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">${item.title}</h5>
             <small class="text-muted">1 minute ago</small>
           </div>
-          <p class="mb-1">${item.content}</p>
-          <small class="text-muted">Donec id elit non mi porta.</small>
+          <p class="mb-1">${childrenContent}</p>
+          <small class="text-muted"></small>
         </a>`;
         target.append(layout);
       }
