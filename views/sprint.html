@@ -2,6 +2,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,34 +26,25 @@
         </div>
       </div>
       <div class="row my-5">
-        <div class="col-12">
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small>3 days ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small>Donec id elit non mi porta.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small class="text-muted">1 minute ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small class="text-muted">Donec id elit non mi porta.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small class="text-muted">1 minute ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small class="text-muted">Donec id elit non mi porta.</small>
-            </a>
-          </div>
+
+        <h3 class="mb-3">Tasks</h3>
+
+        <div class="col-12 mb-5 contentFarm">
         </div>
+
+        <h3 class="mb-3">Next Sprint</h3>
+
+        <div class="col-12 mb-5">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Baccarat Fortune GT Version Implementation</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="mb-1">This is a huge task, could be very exhausting.</p>
+            <small>Wish good luck.</small>
+          </a>
+        </div>
+
       </div>
       <div class="row">
         <div class="col">
@@ -64,6 +58,49 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      const content = [
+        {
+          title :"Product backlog grooming with PO",
+          content : "",
+        },
+        {
+          title: "Baccarat Fortune 1.0 Upgrade",
+          content: "",
+        },
+        {
+          title: "Baccarat Fortune GT Version Preparation",
+          content: "",
+        },
+        {
+          title: "Misc. Technical Task",
+          content: "",
+        },
+        {
+          title: "Testing",
+          content: "",
+        }
+      ];
+
+      const length = content.length;
+      const target = $(".contentFarm");
+
+      for(let i = 0; i < length; i++){
+        const item = content[i];
+        const layout = `
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">${item.title}</h5>
+            <small class="text-muted">1 minute ago</small>
+          </div>
+          <p class="mb-1">${item.content}</p>
+          <small class="text-muted">Donec id elit non mi porta.</small>
+        </a>`;
+        target.append(layout);
+      }
+
+      target.appendChild
+    </script>
   </body>
 </html>
 
