@@ -2,14 +2,23 @@
   "name": "rangolee302.github.io",
   "version": "1.0.0",
   "description": "rango's page",
-  "main": "\\index.html",
-  "dependencies": {},
+  "main": "./src/main.sj",
+  "dependencies": {
+    "eslint-config-airbnb-base": "^14.0.0"
+  },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "eslint": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "rollup": "^1.19.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "three": "^0.107.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
