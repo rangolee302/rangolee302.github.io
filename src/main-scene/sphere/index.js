@@ -1,16 +1,11 @@
-import { SphereGeometry, MeshBasicMaterial, Mesh, MeshNormalMaterial, TextureLoader, } from "three";
-import { Texture, } from "../../resource";
+import { SphereGeometry, Mesh, MeshNormalMaterial, MeshPhongMaterial, } from "three";
+import { TexturePack, } from "../../resource";
 
-function getTexture() {
-  const loader = new TextureLoader();
-  return loader.load(Texture.earth);
-}
 
 export function Sphere() {
   const geometry = new SphereGeometry(2, 16, 16);
-  const texture = getTexture();
-  const material = new MeshNormalMaterial({
-    wireframe: true,
+  const texture = TexturePack.getTexture("earth-night");
+  const material = new MeshPhongMaterial({
     map: texture,
   });
   const sphere = new Mesh(geometry, material);

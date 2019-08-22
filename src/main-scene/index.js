@@ -1,6 +1,9 @@
 import { Scene, PerspectiveCamera, WebGLRenderer, } from "three";
 import { Cube, } from "./cube";
 import { Sphere, } from "./sphere";
+import { Light, } from "./point-light";
+
+
 
 function getScene() {
   var scene = new Scene();
@@ -25,7 +28,7 @@ export function MainScene() {
     scene: getScene(),
     camera: getCamera(),
     renderer: getRenderer(),
-    children: [Cube(), Sphere(), ],
+    children: [Cube(), Sphere(), Light(), ],
     addChildren: function () {
       const length = this.children.length;
       for (let index = 0; index < length; index++) {

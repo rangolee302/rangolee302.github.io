@@ -1,4 +1,4 @@
-var bundle = (function (exports) {
+(function () {
 	'use strict';
 
 	// Polyfills
@@ -48499,27 +48499,82 @@ var bundle = (function (exports) {
 
 	};
 
-	// var geometry = new BoxGeometry(1, 1, 1);
-	// var material = new MeshBasicMaterial({
-	//   color: 0x00ff00,
-	// });
-	// const mesh = new Mesh(geometry, material);
-
-	// mesh.rotation.x += 0.1;
-	// mesh.rotation.y += 0.1;
-
-	// export const Cube = mesh;.
-
 	function Cube() {
 	  const geometry = new BoxGeometry(1, 1, 1);
 	  const material = new MeshNormalMaterial();
 	  const cube = new Mesh(geometry, material);
-	  return cube;
+
+	  cube.position.x = 2;
+
+	  return {
+	    mesh: cube,
+	    animation: function () {
+	      this.mesh.rotateX(0.1);
+	      this.mesh.rotateY(0.1);
+	    },
+	  }
 	}
 
-	// import { MainScene, } from "./main-scene";
+	const TextureList = [
+	  {
+	    name: "earth-night",
+	    path: "/asset/image/austin/earth-night.jpg",
+	  },
+	];
 
-	// export const App = MainScene;
+	const TexturePack = {
+	  init: function() {
+	    console.log("start init");
+	    const loader = new TextureLoader();
+	    const length = TextureList.length;
+	    for (let index = 0; index < length; index++) {
+	      const element = TextureList[index];
+	      this[element.name] = loader.load(element.path);
+	    }
+	    this.init = null;
+	  },
+	  getTexture: function (name) {
+	    console.log(this);
+	    const texture = this[name];
+	    if (!texture) {
+	      return null;
+	    }
+	    return texture;
+	  },
+	};
+
+	function Sphere$1() {
+	  const geometry = new SphereGeometry(2, 16, 16);
+	  const texture = TexturePack.getTexture("earth-night");
+	  const material = new MeshPhongMaterial({
+	    map: texture,
+	  });
+	  const sphere = new Mesh(geometry, material);
+
+	  sphere.position.x = -2;
+	  sphere.position.y = 0;
+	  sphere.position.z = 0;
+
+	  return {
+	    mesh: sphere,
+	    animation: function () {
+	      // this.mesh.rotateX(0.01);
+	      this.mesh.rotateY(0.01);
+	    },
+	  }
+	}
+
+	function Light$1() {
+
+	  var light = new PointLight(0xffffff, 5, 60);
+	  light.position.set(0, 0, 3);
+	  return {
+	    mesh: light,
+	    animation: function() {
+
+	    },
+	  }
+	}
 
 	function getScene() {
 	  var scene = new Scene();
@@ -48544,18 +48599,28 @@ var bundle = (function (exports) {
 	    scene: getScene(),
 	    camera: getCamera(),
 	    renderer: getRenderer(),
-	    cube: Cube(),
+	    children: [Cube(), Sphere$1(), Light$1(), ],
+	    addChildren: function () {
+	      const length = this.children.length;
+	      for (let index = 0; index < length; index++) {
+	        const element = this.children[index];
+	        this.scene.add(element.mesh);
+	      }
+	    },
 	    start: function () {
-	      this.scene.add(this.cube);
+	      this.addChildren();
 	      document.body.appendChild(this.renderer.domElement);
 	    },
 	    render: function () {
 	      this.animation();
 	      this.renderer.render(this.scene, this.camera);
 	    },
-	    animation: function() {
-	      this.cube.rotateX(0.1);
-	      this.cube.rotateY(0.1);
+	    animation: function () {
+	      const length = this.children.length;
+	      for (let index = 0; index < length; index++) {
+	        const element = this.children[index];
+	        element.animation();
+	      }
 	    },
 	  }
 	}
@@ -48571,10 +48636,7 @@ var bundle = (function (exports) {
 	  draw();
 	}
 
+	TexturePack.init();
 	Start();
 
-	exports.Start = Start;
-
-	return exports;
-
-}({}));
+}());

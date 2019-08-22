@@ -19,20 +19,6 @@ const avengerImages = [
   "thor.jpg",
 ];
 
-/**
- * @returns {Array} return array of Image obj
- */
-export function getImages(base) {
-  const numOfImg = base.list.length;
-  let images = [];
-  for (let i = 0; i < numOfImg; i++) {
-    const newImage = new Image();
-    newImage.src = base.relativePath + base.list[i];
-    images.push(newImage);
-  }
-  return images;
-}
-
 export const imageBase = {
   home: {
     relativePath: homeImageRelativePath,

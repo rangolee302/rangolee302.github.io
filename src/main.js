@@ -1,4 +1,5 @@
 import { MainScene, } from "./main-scene";
+import { TexturePack, } from "./resource";
 
 function Start() {
   const sceneObj = MainScene();
@@ -11,5 +12,6 @@ function Start() {
   draw();
 }
 
-Start();
+TexturePack.init();
+Start()
 
