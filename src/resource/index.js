@@ -10,7 +10,6 @@ const TextureList = [
 
 export const TexturePack = {
   init: function() {
-    console.log("start init");
     const loader = new TextureLoader();
     const length = TextureList.length;
     for (let index = 0; index < length; index++) {
@@ -20,7 +19,6 @@ export const TexturePack = {
     this.init = null;
   },
   getTexture: function (name) {
-    console.log(this);
     const texture = this[name]
     if (!texture) {
       return null;
