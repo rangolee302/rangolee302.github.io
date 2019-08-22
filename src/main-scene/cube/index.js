@@ -2,22 +2,21 @@ import {
   BoxGeometry,
   MeshNormalMaterial,
   Mesh,
+  MeshBasicMaterial,
 } from "three";
-
-// var geometry = new BoxGeometry(1, 1, 1);
-// var material = new MeshBasicMaterial({
-//   color: 0x00ff00,
-// });
-// const mesh = new Mesh(geometry, material);
-
-// mesh.rotation.x += 0.1;
-// mesh.rotation.y += 0.1;
-
-// export const Cube = mesh;.
 
 export function Cube() {
   const geometry = new BoxGeometry(1, 1, 1);
   const material = new MeshNormalMaterial();
   const cube = new Mesh(geometry, material);
-  return cube;
+
+  cube.position.x = 2;
+
+  return {
+    mesh: cube,
+    animation: function () {
+      this.mesh.rotateX(0.1);
+      this.mesh.rotateY(0.1);
+    },
+  }
 }

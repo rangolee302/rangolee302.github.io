@@ -1,5 +1,6 @@
 import { Scene, PerspectiveCamera, WebGLRenderer, } from "three";
 import { Cube, } from "./cube";
+import { Sphere, } from "./sphere";
 
 function getScene() {
   var scene = new Scene();
@@ -24,9 +25,16 @@ export function MainScene() {
     scene: getScene(),
     camera: getCamera(),
     renderer: getRenderer(),
-    cube: Cube(),
+    children: [Cube(), Sphere(), ],
+    addChildren: function () {
+      const length = this.children.length;
+      for (let index = 0; index < length; index++) {
+        const element = this.children[index];
+        this.scene.add(element.mesh);
+      }
+    },
     start: function () {
-      this.scene.add(this.cube);
+      this.addChildren();
       document.body.appendChild(this.renderer.domElement);
     },
     render: function () {
@@ -34,8 +42,11 @@ export function MainScene() {
       this.renderer.render(this.scene, this.camera);
     },
     animation: function () {
-      this.cube.rotateX(0.1);
-      this.cube.rotateY(0.1);
+      const length = this.children.length;
+      for (let index = 0; index < length; index++) {
+        const element = this.children[index];
+        element.animation();
+      }
     },
   }
 }
