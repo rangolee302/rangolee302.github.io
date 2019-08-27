@@ -1,10 +1,10 @@
-import { SphereGeometry, Mesh, MeshNormalMaterial, MeshPhongMaterial, } from "three";
-import { TexturePack, } from "../../resource";
+import { SphereGeometry, Mesh, MeshPhongMaterial, } from "three";
+import { getTexture, MainSceneTexture, } from "../../resource";
 
 
 export function Sphere() {
   const geometry = new SphereGeometry(2, 16, 16);
-  const texture = TexturePack.getTexture("earth-night");
+  const texture = getTexture(MainSceneTexture, "earth-night")
   const material = new MeshPhongMaterial({
     map: texture,
   });
@@ -15,10 +15,10 @@ export function Sphere() {
   sphere.position.z = 0;
 
   return {
-    mesh: sphere,
-    animation: function () {
+    object: sphere,
+    animation: function (mesh) {
       // this.mesh.rotateX(0.01);
-      this.mesh.rotateY(0.01);
+      mesh.rotateY(0.01);
     },
   }
 }

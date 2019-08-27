@@ -2,11 +2,15 @@ import { Scene, PerspectiveCamera, WebGLRenderer, } from "three";
 import { Cube, } from "./cube";
 import { Sphere, } from "./sphere";
 import { Light, } from "./point-light";
+import { AnimateBehavior, RenderBehavior, AddChildrenToSceneBehavior, } from "../behaviors";
 
 
 
-function getScene() {
+function getScene(children) {
   var scene = new Scene();
+  if (children) {
+    scene.add(children)
+  }
   return scene;
 }
 
@@ -23,33 +27,37 @@ function getRenderer() {
   return renderer;
 }
 
-export function MainScene() {
+function start(state) {
+  const {
+    renderer,
+  } = state || {};
+  document.body.appendChild(renderer.domElement);
+}
+
+export const MainSceneBehavior = (function (state) {
+  // const {
+  //   scene,
+  //   camera,
+  //   renderer,
+  //   children,
+  // } = state
+
+  AnimateBehavior(state);
+  AddChildrenToSceneBehavior(state);
   return {
-    scene: getScene(),
+    render: RenderBehavior(state),
+    start: start(state),
+    animation: AnimateBehavior(state),
+  }
+});
+
+export const MainScene = (function(behaviorsMode) {
+  const children = [Cube(), Sphere(), Light(), ];
+  const state = {
+    children,
     camera: getCamera(),
     renderer: getRenderer(),
-    children: [Cube(), Sphere(), Light(), ],
-    addChildren: function () {
-      const length = this.children.length;
-      for (let index = 0; index < length; index++) {
-        const element = this.children[index];
-        this.scene.add(element.mesh);
-      }
-    },
-    start: function () {
-      this.addChildren();
-      document.body.appendChild(this.renderer.domElement);
-    },
-    render: function () {
-      this.animation();
-      this.renderer.render(this.scene, this.camera);
-    },
-    animation: function () {
-      const length = this.children.length;
-      for (let index = 0; index < length; index++) {
-        const element = this.children[index];
-        element.animation();
-      }
-    },
+    scene: getScene(children),
   }
-}
+  return behaviorsMode(state)
+}(MainSceneBehavior));

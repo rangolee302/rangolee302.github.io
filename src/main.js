@@ -1,17 +1,15 @@
 import { MainScene, } from "./main-scene";
-import { TexturePack, } from "./resource";
 
 function Start() {
-  const sceneObj = MainScene();
-  sceneObj.start();
+  const mainScene = MainScene();
+  mainScene.start(mainScene);
 
   function draw() {
     requestAnimationFrame(draw);
-    sceneObj.render();
+    mainScene.render();
   }
   draw();
 }
 
-TexturePack.init();
 Start()
 
