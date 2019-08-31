@@ -17,7 +17,6 @@ export function Sphere() {
   return {
     object: sphere,
     animation: function (mesh) {
-      // this.mesh.rotateX(0.01);
       mesh.rotateY(0.01);
     },
   }

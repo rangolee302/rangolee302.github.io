@@ -1,44 +1,74 @@
-export function AddChildrenToSceneBehavior(state) {
-  const {
-    children = [],
-    scene,
-  } = state;
-  children.forEach(element => {
-    if (element.object) {
-      scene.add(element.object)
+export const AddChildrenBehavior = {
+  name: "add",
+  behavior: function (state = {}, props = {}) {
+    const {
+      pool = {},
+    } = props
+    const {
+      children = [],
+    } = state;
+    const length = children.length;
+    for (let index = 0; index < length; index++) {
+      const {
+        object = {},
+      } = children[index];
+      console.log(children[index]);
+      pool.add(object)
     }
-  });
+  },
 }
 
-export function AddChildrenToGroupBehavior(state) {
-  const {
-    children = [],
-    group,
-  } = state;
-  children.forEach(element => {
-    if (element.object) {
-      group.add(element.object)
+export const RenderBehavior = {
+  name: "render",
+  behavior: function (state) {
+    const {
+      renderer = {},
+      camera = {},
+      scene = {},
+    } = state || {};
+    renderer.render(scene, camera);
+  },
+};
+
+export const AnimateBehavior = {
+  name: "animation",
+  behavior: function (state) {
+    const {
+      children,
+    } = state || {};
+    const {length = 0, } = children;
+    for (let index = 0; index < length; index++) {
+      const {
+        animation = () => {},
+        object = {},
+      } = children[index];
+      if (animation) {
+        animation(object);
+      }
     }
-  });
+  },
 }
 
-export function RenderBehavior(state) {
-  const {
-    animation, renderer, camera, scene,
-  } = state || {};
-  if (animation) {
-    animation();
+
+export const StartBehavior = {
+  name: "start",
+  behavior: function (state) {
+    const {
+      renderer,
+    } = state || {};
+    console.log(document, state)
+    document.body.appendChild(renderer.domElement);
+  },
+}
+
+export function wrapBehaviors(behaviors = [], state, props) {
+  const wrapPackage = {};
+  const length = behaviors.length;
+  for (let index = 0; index < length; index++) {
+    const {
+      name = "", behavior = () => {},
+    } = behaviors[index];
+    wrapPackage[name] = () => behavior(state, props);
   }
-  renderer.render(scene, camera);
-}
-
-export function AnimateBehavior(state) {
-  const {
-    children,
-  } = state || {};
-  children.forEach(element => {
-    if (element.animation) {
-      element.animation(element.object);
-    }
-  });
+  return wrapPackage
 }

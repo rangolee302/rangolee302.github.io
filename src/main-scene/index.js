@@ -2,15 +2,13 @@ import { Scene, PerspectiveCamera, WebGLRenderer, } from "three";
 import { Cube, } from "./cube";
 import { Sphere, } from "./sphere";
 import { Light, } from "./point-light";
-import { AnimateBehavior, RenderBehavior, AddChildrenToSceneBehavior, } from "../behaviors";
+import { AnimateBehavior, RenderBehavior, StartBehavior, wrapBehaviors, AddChildrenBehavior, } from "../behaviors";
+import { EnvironmentLight, } from "./ambient-light";
 
 
 
-function getScene(children) {
+function getScene() {
   var scene = new Scene();
-  if (children) {
-    scene.add(children)
-  }
   return scene;
 }
 
@@ -27,37 +25,28 @@ function getRenderer() {
   return renderer;
 }
 
-function start(state) {
-  const {
-    renderer,
-  } = state || {};
-  document.body.appendChild(renderer.domElement);
+export function MainSceneBehavior(state = {}) {
+  const props = {
+    pool: state.scene,
+  }
+  const behaviors = [
+    AnimateBehavior,
+    RenderBehavior,
+    StartBehavior,
+    AddChildrenBehavior,
+  ];
+  return wrapBehaviors(behaviors, state, props);
 }
 
-export const MainSceneBehavior = (function (state) {
-  // const {
-  //   scene,
-  //   camera,
-  //   renderer,
-  //   children,
-  // } = state
-
-  AnimateBehavior(state);
-  AddChildrenToSceneBehavior(state);
-  return {
-    render: RenderBehavior(state),
-    start: start(state),
-    animation: AnimateBehavior(state),
-  }
-});
-
-export const MainScene = (function(behaviorsMode) {
-  const children = [Cube(), Sphere(), Light(), ];
+export function MainSceneContainer (behaviors) {
+  const children = [Cube(), Sphere(), Light(), EnvironmentLight(), ];
   const state = {
     children,
     camera: getCamera(),
     renderer: getRenderer(),
-    scene: getScene(children),
+    scene: getScene(),
   }
-  return behaviorsMode(state)
-}(MainSceneBehavior));
+  return behaviors(state)
+}
+
+export const MainScene = MainSceneContainer(MainSceneBehavior);

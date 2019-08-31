@@ -40,6 +40,4 @@ const MainSceneTextureLoaderData = {
   ],
 }
 
-
-
 export const MainSceneTexture = new TexturePackInit(MainSceneTextureLoaderData);

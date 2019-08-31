@@ -1,12 +1,14 @@
 import { MainScene, } from "./main-scene";
 
 function Start() {
-  const mainScene = MainScene();
-  mainScene.start(mainScene);
+
+  MainScene.start();
+  MainScene.add();
 
   function draw() {
     requestAnimationFrame(draw);
-    mainScene.render();
+    MainScene.animation();
+    MainScene.render();
   }
   draw();
 }
