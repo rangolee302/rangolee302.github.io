@@ -2,13 +2,16 @@ import { Scene, PerspectiveCamera, WebGLRenderer, } from "three";
 import { Cube, } from "./cube";
 import { Sphere, } from "./sphere";
 import { Light, } from "./point-light";
-import { AnimateBehavior, RenderBehavior, StartBehavior, wrapBehaviors, AddChildrenBehavior, } from "../behaviors";
+import { AnimateBehavior, RenderBehavior, StartBehavior, wrapBehaviors, AddChildrenBehavior, OrbitControlUpdateBehavior, } from "../behaviors";
 import { EnvironmentLight, } from "./ambient-light";
+import { SkyBox, } from "./skybox";
+import { OrbitControls, } from "../control";
 
 
 
 function getScene() {
   var scene = new Scene();
+  scene.background = SkyBox();
   return scene;
 }
 
@@ -34,6 +37,7 @@ export function MainSceneBehavior(state = {}) {
     RenderBehavior,
     StartBehavior,
     AddChildrenBehavior,
+    OrbitControlUpdateBehavior,
   ];
   return wrapBehaviors(behaviors, state, props);
 }
@@ -46,6 +50,7 @@ export function MainSceneContainer (behaviors) {
     renderer: getRenderer(),
     scene: getScene(),
   }
+  state.control = new OrbitControls(state.camera, state.renderer.domElement)
   return behaviors(state)
 }
 

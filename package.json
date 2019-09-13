@@ -4,14 +4,16 @@
   "description": "rango's page",
   "main": "./src/main.sj",
   "dependencies": {
-    "eslint-config-airbnb-base": "^14.0.0"
+    "three": "^0.107.0",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "rollup": "^1.19.4",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "three": "^0.107.0"
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

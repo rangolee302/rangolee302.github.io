@@ -2,16 +2,17 @@ import {
   BoxGeometry,
   MeshNormalMaterial,
   Mesh,
-  PointLight,
-  Group,
+  // PointLight,
+  // Group,
 } from "three";
 
-function Light () {
-  const light = new PointLight(0xffffff, 8, 10);
-  return {
-    object: light,
-  }
-}
+// function Light () {
+//   const light = new PointLight(0xffffff, 8, 10);
+//   return {
+//     object: light,
+//   }
+// }
+
 export function Cube() {
   const geometry = new BoxGeometry(1, 1, 1);
   const material = new MeshNormalMaterial();

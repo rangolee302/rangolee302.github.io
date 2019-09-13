@@ -3,10 +3,11 @@ import { getTexture, MainSceneTexture, } from "../../resource";
 
 
 export function Sphere() {
-  const geometry = new SphereGeometry(2, 16, 16);
+  const geometry = new SphereGeometry(2, 32, 32);
   const texture = getTexture(MainSceneTexture, "earth-night")
   const material = new MeshPhongMaterial({
     map: texture,
+    flatShading: false,
   });
   const sphere = new Mesh(geometry, material);
 

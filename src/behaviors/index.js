@@ -1,3 +1,6 @@
+import { OrbitControls, } from "../control";
+
+
 export const AddChildrenBehavior = {
   name: "add",
   behavior: function (state = {}, props = {}) {
@@ -12,9 +15,18 @@ export const AddChildrenBehavior = {
       const {
         object = {},
       } = children[index];
-      console.log(children[index]);
       pool.add(object)
     }
+  },
+}
+
+export const OrbitControlUpdateBehavior = {
+  name: "controlUpdate",
+  behavior: function (state) {
+    const {
+      control = {},
+    } = state;
+    control.update();
   },
 }
 
@@ -56,7 +68,6 @@ export const StartBehavior = {
     const {
       renderer,
     } = state || {};
-    console.log(document, state)
     document.body.appendChild(renderer.domElement);
   },
 }

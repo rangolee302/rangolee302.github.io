@@ -35,8 +35,32 @@ const MainSceneTextureLoaderData = {
   list: [
     {
       name: "earth-night",
-      path: "/asset/image/austin/earth-night.jpg",
+      path: "/asset/image/object/earth-night.jpg",
     },
+    // {
+    //   name: "front",
+    //   path: "/asset/image/austin/earth-night.jpg",
+    // },
+    // {
+    //   name: "back",
+    //   path: "/asset/image/austin/earth-night.jpg",
+    // },
+    // {
+    //   name: "top",
+    //   path: "/asset/image/austin/earth-night.jpg",
+    // },
+    // {
+    //   name: "bottom",
+    //   path: "/asset/image/austin/earth-night.jpg",
+    // },
+    // {
+    //   name: "left",
+    //   path: "/asset/image/austin/earth-night.jpg",
+    // },
+    // {
+    //   name: "right",
+    //   path: "/asset/image/austin/earth-night.jpg",
+    // },
   ],
 }
 

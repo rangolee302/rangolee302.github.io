@@ -9,6 +9,7 @@ function Start() {
     requestAnimationFrame(draw);
     MainScene.animation();
     MainScene.render();
+    MainScene.controlUpdate();
   }
   draw();
 }
