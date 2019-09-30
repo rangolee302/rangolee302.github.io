@@ -23,7 +23,7 @@ export function Cube() {
   return {
     object: cube,
     animation: function (mesh) {
-      mesh.rotateX(0.1);
+      // mesh.rotateX(0.1);
       mesh.rotateY(0.1);
     },
   }

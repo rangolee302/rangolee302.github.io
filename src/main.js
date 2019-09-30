@@ -4,6 +4,7 @@ function Start() {
 
   MainScene.start();
   MainScene.add();
+  MainScene.controlUpdate();
 
   function draw() {
     requestAnimationFrame(draw);

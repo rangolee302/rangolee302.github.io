@@ -24,9 +24,11 @@ export const OrbitControlUpdateBehavior = {
   name: "controlUpdate",
   behavior: function (state) {
     const {
-      control = {},
+      control = null,
     } = state;
-    control.update();
+    if (control) {
+      control.update();
+    }
   },
 }
 
