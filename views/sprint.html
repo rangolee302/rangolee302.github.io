@@ -11,7 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    
     <title>Hello, world!</title>
   </head>
   <style>
@@ -19,7 +19,7 @@
       margin-left: 4.16%
     }
     .center-area {
-      height: 40vh;
+      height: 45vh;
     }
   </style>
   <body>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div tag="image" class="py-3 px-2 row">
-        <div class="col-md-12 center-area">                  
+        <div class="col-md-12 center-area text-center">                  
           <img src="/asset/image/austin/alan.jpeg" class="center-area rounded img-fluid" alt="Responsive image">
         </div>
       </div>
@@ -74,14 +74,37 @@
           <i class="h1 fas fa-redo-alt"></i>
         </div>             
       </div>
-      <div tag="footer" class="footer row">
-        <div class="col-md-12 bg-grey p-3">
+      <div tag="footer" class="footer px-2 row">
+        <div class="test col-md-12 bg-grey p-3">
           footer
         </div>
       </div>
     </div>
 
     <!-- Optional JavaScript -->
+    <script>
+      // $( ".center-area" ).click(function() {
+      //   console.log( "Handler for .click() called." );
+      // });
+
+      var timeout_id = 0,
+      hold_time = 1000,
+      hold_trigger = $(".center-area");
+hold_trigger.mousedown(function(){
+  console.log("ser");
+  $(".test").toggle();
+})
+      // hold_trigger.mousedown(function() {
+      //   console.log("set");
+      //   timeout_id = setTimeout(menu_toggle, hold_time);
+      // }).bind('mouseup mouseleave', function() {
+      //   clearTimeout(timeout_id);
+      // });
+
+      // function menu_toggle() {
+      //   console.log("okay");
+      // }
+    </script>
     <!-- Icons  -->
     <script src="https://kit.fontawesome.com/90627898be.js" crossorigin="anonymous"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
