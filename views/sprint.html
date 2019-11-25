@@ -15,24 +15,30 @@
     <title>Hello, world!</title>
   </head>
   <style>
+    .header {
+      position: fixed;
+      height: 12vh;
+    }
     .footer {
       position: fixed;
       height: 12vh;
       bottom: 0;
-      width: 100%;
+    }
+    .button-margin {
+      margin-left: 4.16%
     }
   </style>
   <body>
     <div class="container">
-      <div class="row">
+      <div tag="header" class=" header row">
         <div class="col-md-12 bg-grey p-3">
           title
         </div>
       </div>
-      <div class="p-3">
+      <div tag="image" class="p-3">
         <img src="/asset/image/austin/alan.jpeg" class="rounded img-fluid" alt="Responsive image">
       </div>
-      <div class="p-3">
+      <div tag="description" class="p-3">
         <div class="p-1">
           All Falls Down
         </div>
@@ -40,21 +46,23 @@
           Alan Walker
         </div>
       </div>
-      <div class="p-3">
+      <div tag="progress-bar" class="p-3">
         <div class="progress">
           <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
             aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="p-3">
-        <i class="fas fa-play-circle"></i>
-        <i class="fas fa-step-forward"></i>
-        <i class="fas fa-step-backward"></i>
-        <i class="fas fa-random"></i>
-        <i class="fas fa-repeat"></i>
+      <div tag="buttons" class="p-3 row">
+        <i class="h1 fas fa-random"></i>
+        <i class="button-margin h1 fas fa-step-backward"></i>
+        <i class="button-margin h1 fas fa-play-circle"></i>
+        <i class="button-margin h1 fas fa-step-forward"></i>
+        <i class="button-margin h1 fas fa-redo-alt"></i>
       </div>
-      <div class="footer p-3">
-        device, other settings
+      <div tag="footer" class="footer row">
+        <div class="col-md-12 bg-grey p-3">
+          footer
+        </div>
       </div>
     </div>
 
