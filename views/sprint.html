@@ -14,43 +14,42 @@
 
     <title>Hello, world!</title>
   </head>
+  <style>
+    .footer {
+      position: fixed;
+      height: 100px;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
   <body>
     <div class="container">
-      <div class="row my-5">
-        <div class="col-12 mb-5 alert alert-danger">
-          <div class="p-3 mb-2 row text-danger text-center">
-            <h3 class="col-12 col-md-2 offset-md-1">❤❤❤</h3>
-            <h3 class="col-12 col-md-6">Sprint 26 - Vanessa's Wedding</h3>
-            <h3 class="col-12 col-md-2">❤❤❤</h3>
-          </div>
-        </div>
-      </div>
-      <div class="row my-5">
-
-        <h3 class="mb-3">Tasks</h3>
-
-        <div class="col-12 mb-5 contentFarm">
-        </div>
-
-        <h3 class="mb-3">Next Sprint</h3>
-
-        <div class="col-12 mb-5">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Baccarat Fortune GT Version Implementation</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">This is a huge task, could be very exhausting.</p>
-            <small>Wish good luck.</small>
-          </a>
-        </div>
-
-      </div>
       <div class="row">
-        <div class="col">
-          <a class="py-1" href="https://en.wikipedia.org/wiki/List_of_Marvel_Cinematic_Universe_film_actors">avenger list</a>
+        <div class="col-md-12 bg-grey p-3">
+          title
         </div>
       </div>
+      <div class="p-3">
+        <img src="../..//asset/image/avenger/thor.jpg" class="rounded img-fluid" alt="Responsive image">
+      </div>
+      <div class="p-3">
+        All Falls Down
+        Alan Walker
+      </div>
+      <div class="p-3">
+        <div class="progress">
+          <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+      </div>
+      <div class="p-3">
+        <div>
+          buttons
+        </div>
+      </div>
+    </div>
+    <div class="footer p-5">
+      device, other settings
     </div>
 
     <!-- Optional JavaScript -->
@@ -58,84 +57,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-      const itemBG = "bg-danger";
-      const itemTextColor = "text-white";
-      const timeTextColor = "text-white";
-      const childrenBG = "bg-danger";
-      const childrenTextColor = "text-dark";
-      const content = [
-        {
-          title :"Product backlog grooming with PO",
-          content : [
-            ],
-          },
-        {
-          title: "Baccarat Fortune 1.0 Upgrade",
-          content: [
-            "Wild treasure promotion event support (Start from 1 May, 2019)",
-            "Translation & UI Refine",
-            "Reward Bar integration with General Reminder",
-            "Incentive API and Game Server Update"
-          ],
-        },
-        {
-          title: "Baccarat Fortune GT Version Preparation",
-          content: [
-            "Client game API preparation",
-            "New UI design",
-            // `<button href="http://hkoconfluence.gameassists.net:8090/download/attachments/90865742/BACfortune_AwardPage_step1%28NEW%29.png?version=1&modificationDate=1558059449258&api=v2">link</a>`
-          ],
-        },
-        {
-          title: "Misc. Technical Task",
-          content: [
-            "New Align component design",
-            "RichTiLabel Design",
-            "Multiple style in single line text",
-            // `<div><a href="http://hkoconfluence.gameassists.net:8090/display/HB/3.+Client+Side+Technical+Design">link</a></div >`
-          ],
-        },
-        {
-          title: "Testing",
-          content: [
-            "Baccarat Fortune 1.0 Translation & UI Refinement",
-            "Incentive API and Client Type ID support",
-            "Baccarat Fortune Reward Bar integration with General Reminder "
-          ],
-        }
-      ];
-
-      const length = content.length;
-      const target = $(".contentFarm");
-
-      for(let i = 0; i < length; i++){
-        const item = content[i];
-        const childList = item.content;
-
-        const childrenLength = childList.length;
-        let childrenContent = `<ul class="${childrenBG} ${childrenTextColor} list-group">`;
-        for (let j = 0; j < childrenLength; j++) {
-          childrenContent += `  <li class="list-group-item">${childList[j]}</li>`;
-        }
-        childrenContent += `</ul>`;
-
-
-
-        const layout = `
-        <a href="" class="${itemBG} ${itemTextColor} my-4 list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">${item.title}</h5>
-            <small class="${timeTextColor}">1 minute ago</small>
-          </div>
-          <p class="mb-1">${childrenContent}</p>
-          <small class="text-muted"></small>
-        </a>`;
-        target.append(layout);
-      }
-
-      target.appendChild
-    </script>
   </body>
 </html>
 
