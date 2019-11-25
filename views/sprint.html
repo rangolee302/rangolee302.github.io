@@ -35,8 +35,21 @@
         </div>
       </div>
       <div tag="image" class="py-3 px-2 row">
-        <div class="col-md-12 center-area text-center">                  
-          <img src="/asset/image/austin/alan.jpeg" class="center-area rounded img-fluid" alt="Responsive image">
+        <div class="col-md-12 center-area text-center">
+          <div class="center-info">
+            "All Falls Down" is a song by British-Norwegian record producer and DJ Alan Walker, featuring American
+            singer Noah Cyrus and British DJ and record producer Digital Farm Animals. The music video currently has
+            over 154 million views and 1.5 million likes as of January 19, 2019. 
+          </div>
+          <div class="center-lyrics">
+            <div>What's the trick? I wish I knew</div>
+            <div>I'm so done with thinking through</div>
+            <div>All the things I could've been</div>
+            <div>And I know you want me, too</div>
+            <div>All it takes is that one look at you and I run right back to you</div>
+            <div>You cross that line and it's time to say F you</div>
+          </div>
+          <img src="/asset/image/austin/alan.jpeg" class="center-picture rounded img-fluid" alt="Responsive image">
         </div>
       </div>
       <div tag="description" class="py-3 px-2 row">
@@ -83,27 +96,60 @@
 
     <!-- Optional JavaScript -->
     <script>
-      // $( ".center-area" ).click(function() {
-      //   console.log( "Handler for .click() called." );
-      // });
 
-      var timeout_id = 0,
-      hold_time = 1000,
-      hold_trigger = $(".center-area");
-hold_trigger.mousedown(function(){
-  console.log("ser");
-  $(".test").toggle();
-})
-      // hold_trigger.mousedown(function() {
-      //   console.log("set");
-      //   timeout_id = setTimeout(menu_toggle, hold_time);
-      // }).bind('mouseup mouseleave', function() {
-      //   clearTimeout(timeout_id);
-      // });
+      let startTime = 0;
+      let endTime = 0;
+      // let hold_event = 0;
+      let info_event = 0;
+      const show_time = 5000;
+      const hold_time = 300;
+      // const click_time = 10;
 
-      // function menu_toggle() {
-      //   console.log("okay");
-      // }
+      $(".center-lyrics")[0].addEventListener("touchstart", function(){
+        endureInfo($(".center-lyrics"));
+      })
+      $(".center-info")[0].addEventListener("touchstart", function(){
+        endureInfo($(".center-info"));
+      })
+      $(".center-lyrics").hide();
+      $(".center-info").hide();
+      $(".center-picture")[0].addEventListener("touchstart", function() {
+        startTime = Date.now();
+      })
+      $(".center-picture")[0].addEventListener("touchend", function() {
+        endTime = Date.now();
+        if(endTime - startTime > hold_time){
+          hold();
+        }else{
+          click();
+        }
+      })
+
+      function startInfo(e){
+        console.log(e);
+        e.show();
+        info_event = setTimeout(function(){
+          endInfo(e)
+        }, show_time);
+        $(".center-picture").hide();
+      }
+      function endInfo(e){
+        e.hide();
+        $(".center-picture").show();
+      }
+      function click(){
+        startInfo($(".center-lyrics"));
+      }
+      function hold() {
+        startInfo($(".center-info"));
+      }
+      function endureInfo(e){
+        clearTimeout(info_event);
+        info_event = setTimeout(function(){
+          endInfo(e)
+        }, show_time);
+      }
+
     </script>
     <!-- Icons  -->
     <script src="https://kit.fontawesome.com/90627898be.js" crossorigin="anonymous"></script>
