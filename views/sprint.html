@@ -11,131 +11,152 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    
     <title>Hello, world!</title>
   </head>
+  <style>
+    .button-margin {
+      margin-left: 4.16%
+    }
+    .center-area {
+      height: 45vh;
+    }
+  </style>
   <body>
     <div class="container">
-      <div class="row my-5">
-        <div class="col-12 mb-5 alert alert-danger">
-          <div class="p-3 mb-2 row text-danger text-center">
-            <h3 class="col-12 col-md-2 offset-md-1">❤❤❤</h3>
-            <h3 class="col-12 col-md-6">Sprint 26 - Vanessa's Wedding</h3>
-            <h3 class="col-12 col-md-2">❤❤❤</h3>
+      <div tag="header" class="py-3 px-2 row">
+        <div class="col-2">
+          <div class="h4">
+            <i class="fas fa-long-arrow-alt-left"></i>
+          </div>
+        </div>
+        <div class="col-8 h5 text-center">
+          Fade from Alan Walker
+        </div>
+      </div>
+      <div tag="image" class="py-3 px-2 row">
+        <div class="col-md-12 center-area text-center">
+          <div class="center-info">
+            "All Falls Down" is a song by British-Norwegian record producer and DJ Alan Walker, featuring American
+            singer Noah Cyrus and British DJ and record producer Digital Farm Animals. The music video currently has
+            over 154 million views and 1.5 million likes as of January 19, 2019. 
+          </div>
+          <div class="center-lyrics">
+            <div>What's the trick? I wish I knew</div>
+            <div>I'm so done with thinking through</div>
+            <div>All the things I could've been</div>
+            <div>And I know you want me, too</div>
+            <div>All it takes is that one look at you and I run right back to you</div>
+            <div>You cross that line and it's time to say F you</div>
+          </div>
+          <img src="/asset/image/austin/alan.jpeg" class="center-picture rounded img-fluid" alt="Responsive image">
+        </div>
+      </div>
+      <div tag="description" class="py-3 px-2 row">
+        <div class="col-md-12">
+          <div class="py-1">
+            All Falls Down
+          </div>
+          <div class="text-black-50 ">
+            Alan Walker
           </div>
         </div>
       </div>
-      <div class="row my-5">
-
-        <h3 class="mb-3">Tasks</h3>
-
-        <div class="col-12 mb-5 contentFarm">
+      <div tag="progress-bar" class="py-3 px-2 row">
+        <div class="col-md-12">
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+              aria-valuemax="100"></div>
+          </div>
         </div>
-
-        <h3 class="mb-3">Next Sprint</h3>
-
-        <div class="col-12 mb-5">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Baccarat Fortune GT Version Implementation</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">This is a huge task, could be very exhausting.</p>
-            <small>Wish good luck.</small>
-          </a>
-        </div>
-
       </div>
-      <div class="row">
-        <div class="col">
-          <a class="py-1" href="https://en.wikipedia.org/wiki/List_of_Marvel_Cinematic_Universe_film_actors">avenger list</a>
+      <div tag="buttons" class="py-3 px-2 row">
+        <div class="col-2">
+          <i class="h1 fas fa-random"></i>
+        </div>
+        <div class="button-margin col-2">
+          <i class="h1 fas fa-step-backward"></i>
+        </div>
+        <div class="button-margin col-2">
+          <i class="h1 fas fa-play-circle"></i>
+        </div>
+        <div class="button-margin col-2">
+          <i class="h1 fas fa-step-forward"></i>
+        </div>
+        <div class="button-margin col-2">
+          <i class="h1 fas fa-redo-alt"></i>
+        </div>             
+      </div>
+      <div tag="footer" class="footer px-2 row">
+        <div class="test col-md-12 bg-grey p-3">
+          <i class="h5 fas fa-list"></i>
         </div>
       </div>
     </div>
 
     <!-- Optional JavaScript -->
+    <script>
+
+      let startTime = 0;
+      let endTime = 0;
+      // let hold_event = 0;
+      let info_event = 0;
+      const show_time = 5000;
+      const hold_time = 300;
+      // const click_time = 10;
+
+      $(".center-lyrics")[0].addEventListener("touchstart", function(){
+        endureInfo($(".center-lyrics"));
+      })
+      $(".center-info")[0].addEventListener("touchstart", function(){
+        endureInfo($(".center-info"));
+      })
+      $(".center-lyrics").hide();
+      $(".center-info").hide();
+      $(".center-picture")[0].addEventListener("touchstart", function() {
+        startTime = Date.now();
+      })
+      $(".center-picture")[0].addEventListener("touchend", function() {
+        endTime = Date.now();
+        if(endTime - startTime > hold_time){
+          hold();
+        }else{
+          click();
+        }
+      })
+
+      function startInfo(e){
+        console.log(e);
+        e.show();
+        info_event = setTimeout(function(){
+          endInfo(e)
+        }, show_time);
+        $(".center-picture").hide();
+      }
+      function endInfo(e){
+        e.hide();
+        $(".center-picture").show();
+      }
+      function click(){
+        startInfo($(".center-lyrics"));
+      }
+      function hold() {
+        startInfo($(".center-info"));
+      }
+      function endureInfo(e){
+        clearTimeout(info_event);
+        info_event = setTimeout(function(){
+          endInfo(e)
+        }, show_time);
+      }
+
+    </script>
+    <!-- Icons  -->
+    <script src="https://kit.fontawesome.com/90627898be.js" crossorigin="anonymous"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-      const itemBG = "bg-danger";
-      const itemTextColor = "text-white";
-      const timeTextColor = "text-white";
-      const childrenBG = "bg-danger";
-      const childrenTextColor = "text-dark";
-      const content = [
-        {
-          title :"Product backlog grooming with PO",
-          content : [
-            ],
-          },
-        {
-          title: "Baccarat Fortune 1.0 Upgrade",
-          content: [
-            "Wild treasure promotion event support (Start from 1 May, 2019)",
-            "Translation & UI Refine",
-            "Reward Bar integration with General Reminder",
-            "Incentive API and Game Server Update"
-          ],
-        },
-        {
-          title: "Baccarat Fortune GT Version Preparation",
-          content: [
-            "Client game API preparation",
-            "New UI design",
-            // `<button href="http://hkoconfluence.gameassists.net:8090/download/attachments/90865742/BACfortune_AwardPage_step1%28NEW%29.png?version=1&modificationDate=1558059449258&api=v2">link</a>`
-          ],
-        },
-        {
-          title: "Misc. Technical Task",
-          content: [
-            "New Align component design",
-            "RichTiLabel Design",
-            "Multiple style in single line text",
-            // `<div><a href="http://hkoconfluence.gameassists.net:8090/display/HB/3.+Client+Side+Technical+Design">link</a></div >`
-          ],
-        },
-        {
-          title: "Testing",
-          content: [
-            "Baccarat Fortune 1.0 Translation & UI Refinement",
-            "Incentive API and Client Type ID support",
-            "Baccarat Fortune Reward Bar integration with General Reminder "
-          ],
-        }
-      ];
-
-      const length = content.length;
-      const target = $(".contentFarm");
-
-      for(let i = 0; i < length; i++){
-        const item = content[i];
-        const childList = item.content;
-
-        const childrenLength = childList.length;
-        let childrenContent = `<ul class="${childrenBG} ${childrenTextColor} list-group">`;
-        for (let j = 0; j < childrenLength; j++) {
-          childrenContent += `  <li class="list-group-item">${childList[j]}</li>`;
-        }
-        childrenContent += `</ul>`;
-
-
-
-        const layout = `
-        <a href="" class="${itemBG} ${itemTextColor} my-4 list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">${item.title}</h5>
-            <small class="${timeTextColor}">1 minute ago</small>
-          </div>
-          <p class="mb-1">${childrenContent}</p>
-          <small class="text-muted"></small>
-        </a>`;
-        target.append(layout);
-      }
-
-      target.appendChild
-    </script>
   </body>
 </html>
 
