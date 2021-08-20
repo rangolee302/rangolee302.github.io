@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Speaking Dead</title>
+  </head>
+  <body>
+    <main>
+
+        <nav class="p-3 fixed-top bg-dark"> 
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <a href="../game-gallery/index.html">
+                        <h1 class="navbar-brand text-light">
+                            Project
+                        </h1>
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </nav>
+
+      <div class="container">
+        
+        <div class="row m-5">
+          
+          <div class="col-3 ">
+          </div>
+          <div class="col-6 pt-5">
+            <img src="../image/speaking-dead/cover.jpg" class="mx-auto rounded d-block img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-3">
+          </div>
+         
+        </div>
+
+        <div class="row m-5">
+           <div class="col-12 text-center">  
+              <h1>
+                Speaking Dead
+              </h1>
+              <h5 class="text-secondary font-weight-light">
+                Speech Recognition mobile game
+              </h5>
+          </div>
+        </div>
+
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/speaking-dead/game-play.gif" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">About</i>
+                  </p>
+                  <p>
+                      Speaking Dead is a speech recognition game that use voice as input
+                      to play. User who speaks a correct word will count for 1 score. It internally 
+                      provides a speech recognition libaray so it can support the recognition feature without 
+                      internet connection.
+                      <a href="https://youtu.be/pGNpnMdZe8Y"> click here to watch a video game play</a>
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="d-flex row text-center">
+                <div class="col-1"></div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                    <i class="fas fa-h2">How it built</i>
+                  </p>
+                  <p>
+                    The game was developed using Unity. Unity handles the game play such as animation,
+                    handling voice inputs, counting scores and language switching etc. The recognition part
+                    is powered by a compiled libaray that imports as a plug-in. As a result, voice inputs
+                    received from Unity could be passed to the library to retrive text outputs.
+                  </p>
+                </div>
+                <div class="col-4 d-flex">
+                    <span class="align-self-center">
+                      <img src="../image/speaking-dead/lose.jpg" class="rounded img-fluid align-self-center" alt="Responsive image">
+                    </span>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="d-flex row text-center">
+                <div class="col-1"></div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                    <i class="fas fa-h2    ">Recognition</i>
+                  </p>
+                  <p>
+                    Since the recognition is done by compiled library, there are APIs
+                    provided to call a desired function. It would require users to turn on
+                    microphone function when users first open the game. During the game,
+                    it keeps recording and sending voice data to the compiled library in order to get
+                    recognized text result.
+                  </p>
+                </div>
+                <div class="col-4 d-flex">
+                    <span class="align-self-center">
+                      <img src="../image/speaking-dead/lang.jpg" class="rounded img-fluid align-self-center" alt="Responsive image">
+                    </span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="d-flex row text-center">
+                <div class="col-1"></div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                    <i class="fas fa-h2    ">Update libaray</i>
+                  </p>
+                  <p>
+                    Speaking dead will auto update the recognition library when needed.
+                    If there are network connection when the app opens, it will
+                    compare the checksum of latest library in remote server and current 
+                    library in local. If there are any differences, it will download the 
+                    verison from remote server.
+                  </p>
+                </div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/speaking-dead/download.jpg" class="rounded img-fluid align-self-center" alt="Responsive image">
+                  </span>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer class="m-5 p-5">
+
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+

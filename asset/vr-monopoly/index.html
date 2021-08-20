@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>VR Monopoly</title>
+  </head>
+  <body>
+    <main>
+
+        <nav class="p-3 fixed-top bg-dark"> 
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <a href="../game-gallery/index.html">
+                        <h1 class="navbar-brand text-light">
+                            Project
+                        </h1>
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </nav>
+
+      <div class="container">
+        
+        <div class="row m-5">
+          
+          <div class="col-3 ">
+          </div>
+          <div class="col-6 pt-5">
+            <img src="../image/vr-mono/Capture.jpg" class="mx-auto rounded d-block img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-3">
+          </div>
+         
+        </div>
+
+        <div class="row m-5">
+           <div class="col-12 text-center">  
+              <h1>
+                VR Monopoly
+              </h1>
+              <h5 class="text-secondary font-weight-light">
+                Combination of motion capture and VR first person monopoly game 
+              </h5>
+          </div>
+        </div>
+
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                    <span class="align-self-center">
+                        <img src="../image/vr-mono/ezgif-6-e3f596c2a40a.gif" class="rounded img-fluid" alt="Responsive image">
+                    </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                    <p>
+                        <i class="fas fa-h2">About</i>
+                    </p>
+                    <p>
+                        VR monopoly is a VR game that takes body motion as input
+                        to control the avatar of the monopoly game. Our team utilized
+                        Kinect to capture body motion and hand guesture as pass along
+                        those data to Unity, which used to develop the monopoly game.
+                        The screen image was output to VR device for realistic experiences
+                        as if the player is inside a monopoly game.
+                    </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="d-flex row text-center">
+                <div class="col-1"></div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                    <i class="fas fa-h2    ">Multiplayer</i>
+                  </p>
+                  <p>
+                    As monopoly game has to be multiplayer game, we try to implement it to LAN multiplayer rather
+                    than local multiplayer. The netcode we used is Unity native UNET. In UNET framework, 
+                    each player is connected to a special client that serves as a host. Players' data are sent
+                    to the host are propagate to every client. The main job of our netcode is to synchronize
+                    those data to keep everyone experiencing the same progress.
+                  </p>
+                </div>
+                
+                <div class="col-4 d-flex align-middle">
+                    <span class="align-self-center">
+                        <img src="../image/vr-mono/netwrok.PNG" class="rounded img-fluid" alt="Responsive image">
+                    </span>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="d-flex row text-center">
+                <div class="col-1"></div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                    <i class="fas fa-h2    ">Motion Capture</i>
+                  </p>
+                  <p>
+                    To provide intuitive game control, the game detected players’ different motions 
+                    to execute corresponding functions. 
+                    Kinect was able to detect walking, pushing, pulling, gripping and releasing.
+                  </p>
+                </div>
+                <div class="col-4 d-flex align-middle">
+                    <span class="align-self-center">
+                        <img src="../image/vr-mono/motion.gif" class="rounded img-fluid" alt="Responsive image">
+                    </span>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+
+    
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="d-flex row text-center">
+                <div class="col-1"></div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                    <i class="fas fa-h2    ">Walking detection</i>
+                  </p>
+                  <p>
+                        In walking motion detection, Kinect detected the motion of left knee first. 
+                        When the left knee was lifted, it started to detect the motion of right knee. 
+                        If the left knee and right knee were lifted in a specific interval, 
+                        Kinect will determine that the walking motion was performed. 
+                        The motion of lifting left knee and right knee were detected by calculating 
+                        the different positions of left knee and right knee. When the 
+                        differences were greater than a specific value, lifting of left or right knee was detected.
+                  </p>
+                </div>
+                
+                <div class="col-4 d-flex align-middle">
+                    <span class="align-self-center">
+                        <img src="../image/vr-mono/motion-model.PNG" class="rounded img-fluid" alt="Responsive image">
+                    </span>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+
+        
+
+      </div>
+    </main>
+
+    <footer class="m-5 p-5">
+
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
