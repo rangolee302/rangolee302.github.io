@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Survival Camping</title>
+  </head>
+  <body>
+    <main>
+      <nav class="p-3 fixed-top bg-dark"> 
+          <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4 text-center">
+                  <a href="../game-gallery/index.html">
+                      <h1 class="navbar-brand text-light">
+                          Project
+                      </h1>
+                  </a>
+              </div>
+              <div class="col-4"></div>
+          </div>
+      </nav>
+
+      <div class="container">
+        
+        <div class="row m-5">
+          
+          <div class="col-3 ">
+          </div>
+          <div class="col-6 pt-5">
+            <img src="../image/survival-camp/cover.png" class="mx-auto rounded d-block img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-3">
+          </div>
+         
+        </div>
+
+        <div class="row m-5">
+           <div class="col-12 text-center">  
+              <h1>
+                Survival Camping
+              </h1>
+              <h5 class="text-secondary font-weight-light">
+                multiplayer survival game prototype
+              </h5>
+          </div>
+        </div>
+
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/survival-camp/about.jpg" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">About</i>
+                  </p>
+                  <p>
+                      Survival Camping is a game that, as name suggested, put surviving to camping.
+                      It is designed to be a single match co-op game that players would
+                      work together to get through their circumstance using the tools they
+                      have. It is still in prototype stage which built using Unity.
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/survival-camp/play.gif" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">Idea</i>
+                  </p>
+                  <p>
+                      One thing that makes players felt tedious is spending time on repeated resource collection,
+                      crafting and routines that makes thems survive in game.
+                      Survival Camping would make these element critical that player should
+                      decide what resource they the most and what should be done first at the moment.
+                      The design shift resource collection to resource management, enhancing the feeling
+                      of survival.  
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/photonlogo.png" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">Multiplayer</i>
+                  </p>
+                  <p>
+                      The prototype use Photon Unity Netwokring (PUN) 2 as a backbone of netcode.
+                      There were lots of choice when choosing the framework for building multiplayer
+                      game. But PUN was chosen for easy acesssibility, large community and ease of use.
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/survival-camp/lobby.PNG" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">Multiplayer Cont.</i>
+                  </p>
+                  <p>
+                      The prototype can create a room that commodate up to 4 players. The host could start
+                      the game once every players is ready. Data like nicknames, player's health, object position and
+                      state of the game are synchronized and probagate to every client. 
+                  </p>
+                  <p>
+                    The way we synchronize data depends. For objects postiion and animation, I use
+                    Photon Transform which done the job itself. And OnPhotonSerializeView 
+                    used to synchronize simple data like health and game timer. Some complex
+                    function we mostly use Remote Procedual Calls to pass a command to host and probagate to others. 
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/survival-camp/firestore.png" class="rounded img-fluid" alt="Responsive image">
+                    <img src="../image/survival-camp/cloud function.png" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">Player data storage</i>
+                  </p>
+                  <p>
+                      Survival Camp will use Firestore on Firebase to store player data.
+                      It is planned to have email registration for a account and will further
+                      develop a features to save player items, activities and matches result using Firestore. To test that,
+                      I made a successful dummy registration using of Firebase Cloud Function and FireStore.
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-5">
+          <div class="col-12">
+            <div class="row d-flex text-center">
+                <div class="col-1"></div>
+                <div class="col-4 d-flex">
+                  <span class="align-self-center">
+                    <img src="../image/survival-camp/map.png" class="rounded img-fluid" alt="Responsive image">
+                  </span>
+                </div>
+                <div class="align-self-center lead col-6">
+                  <p>
+                      <i class="fas fa-h2    ">Procedual generate map</i>
+                  </p>
+                  <p>
+                      The map of each match in Survival Camping will be procedual generated.
+                      Procedual generate map has the advantage of randomess that makes each game
+                      will not repeat and resource will be allocated randomly. Each game is unqiue is
+                      a key to player engagment.
+                  </p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="m-5 p-5">
+
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
