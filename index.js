@@ -1,4 +1,4 @@
-import {anime} from "./anime.es.js";
+import anime  from "./anime.es.js";
 
 function main(params) {
     console.log("asdf");
