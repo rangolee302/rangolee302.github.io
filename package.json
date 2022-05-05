@@ -1,0 +1,22 @@
+{
+  "name": "rangolee302.github.io",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/rangolee302/rangolee302.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rangolee302/rangolee302.github.io.git"
+  },
+  "author": "Ranog Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rangolee302/rangolee302.github.io/issues"
+  },
+  "homepage": "https://github.com/rangolee302/rangolee302.github.io#readme",
+  "dependencies": {
+    "animejs": "^3.2.1"
+  }
+}
