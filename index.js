@@ -1,4 +1,4 @@
-import anime from "./node_modules/animejs/lib/anime.min.js";
+import anime from "./anime.min.js";
 
 function main(params) {
     console.log("asdf");
