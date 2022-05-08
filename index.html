@@ -7,14 +7,146 @@
 
   <!-- incldue css -->
   <link rel="stylesheet" href="css/style.css">
-  
+  <!-- include bootstrap.min.css -->
+  <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
+
   <!-- include javascript -->
   <script src="index.js" type="module"></script>
 
 <body>
 
-  <div class="stagger-visualizer">
+  <div class="container position-absolute">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="stagger-visualizer">
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class=" position-absolute cross">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">
+          <span class="text-primary">
+            ❌
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class=" position-absolute tick">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">
+          <span class="text-primary">
+            ✔️
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <!--  ask user to enter their birthday -->
+  <div class="container position-absolute question-birthday">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Enter your birthday</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Enter your birthday">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ask user to enter what is their memorable date -->
+  <div class="container d-none position-absolute">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Enter your memorable date</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="memorable" name="memorable"
+            placeholder="Enter your memorable date">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ask user to choose their favorite color from "red" "blue" "green" "white" -->
+  <div class="container d-none position-absolute">
+    <div class="row">
+      <div class="col-md-12">        
+        <h1>What is your favorite color❤️</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="form-group">
+          <!-- radio button for red, blue, green, white -->
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="color" id="red" value="red">
+            <label class="form-check-label" for="red">
+              Red
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="color" id="blue" value="blue">
+            <label class="form-check-label" for="blue">
+              Blue
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="color" id="green" value="green">
+            <label class="form-check-label" for="green">
+              Green
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="color" id="white" value="white">
+            <label class="form-check-label" for="white">
+              White
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="container  d-none position-absolute question-equation">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="asset/image/mony-bday/equation.png" class="img-fluid">
+        <h1>What answer of the Equation?</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+  
+        <div class="form-group">
+          <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Enter your answer">
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+
 
 </body>
 

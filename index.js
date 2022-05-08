@@ -1,174 +1,71 @@
-import anime from "./anime.es.js";
-import config from "./word-config.js";
+import GetCongradAnimation from "./scripts/congradAnimation.js";
+import anime from "./scripts/anime.es.js";
+// import GetBirthdayAnimation from "./scripts/birthdayAnimation.js";
 
-
-const wordLineMap = config.wordLineMap;
-const wordPositionMap = config.wordPositionMap;
-const grid = [30, 5];
-const largerGrid = [48, 15]
-const col = grid[0];
-const row = grid[1];
-const colInLargeGrid = largerGrid[0];
-const wordGroup = CreateWordGroup();
-const wordGroupSize = GetWordGroupSize();
-
-function CreateWordGroup() {
-    const group = [];
-    // loop wordPositionMap
-    for (let i = 0; i < wordPositionMap.length; i++) {
-        // loop wordPositionMap[i]
-        for (let j = 0; j < wordPositionMap[i].length; j++) {
-            // push wordPositionMap[i][j] to group
-            group.push(i);
-        }
-    }
-    return group;
-}
-
-function GetWordGroupSize() {
-    const group = [];
-    for (let i = 0; i < wordPositionMap.length; i++) {
-        let size = 0;
-        for (let j = 0; j < wordPositionMap[i].length; j++) {
-            size++;
-        }
-        group.push(size);
-    }
-    // add up group by map  
-    return group;
-}
-
-function GetOrderInGroup(group, index) {
-    let order = 0;
-    for (let i = 0; i < group; i++) {
-        order += wordGroupSize[i];
-    }
-    return index - order;
-}
-
-function GetOffset(group) {
+function GetEntryAnimation(targets, delay = 100) {
     return {
-        x: wordLineMap[group].x * 5,
-        y: wordLineMap[group].y * 6,
+        targets,
+        translateX: 0,
+        translateY: 0,
+        duration: 1000,
+        scale: 1,
+        easing: "easeInOutQuart",
+        // delay,
     };
 }
 
-function GetWordPostiion(el, i) {
-    if (i >= wordGroup.length) {
-        return { x: 0, y: 0 };
-    }
-
-    // use i to get postiion from wordPositionMap
-    const group = wordGroup[i];
-    const order = GetOrderInGroup(group, i);
-    if (order >= wordPositionMap[group].length) {
-        return { x: 0, y: 0 };
-    }
-    const position = wordPositionMap[group][order];
-    const offset = GetOffset(group);
+function GetOutroAnimation(targets, delay = 100) {
     return {
-        x: position.x + offset.x,
-        y: position.y + offset.y,
-    };
-}
-
-function GetCurrnetPosition(i, colNumber) {
-    const x = i % colNumber;
-    const y = Math.floor(i / colNumber);
-    return { x, y };
-}
-
-function main() {
-    const staggerVisualizerEl = document.querySelector('.stagger-visualizer');
-    const fragment = document.createDocumentFragment();
-
-    const numberOfElements = 137;
-
-    for (let i = 0; i < numberOfElements; i++) {
-        fragment.appendChild(document.createElement('div'));
-    }
-
-    staggerVisualizerEl.appendChild(fragment);
-
-    const staggersAnimation = anime.timeline({
-        targets: '.stagger-visualizer div',
-        easing: 'easeInOutSine',
-        delay: anime.stagger(50),
-        loop: 0,
-        direction: 'alternate',
+        targets,
+        translateY: "-1000%",
+        duration: 1000,
+        easing: "easeInOutQuart",
+        scale: 0.5,
+        // delay,
         autoplay: false
-    })
-        .add({
-            translateX: [
-                { value: anime.stagger('-.1rem', { grid: grid, from: 'center', axis: 'x' }) },
-                { value: anime.stagger('.1rem', { grid: grid, from: 'center', axis: 'x' }) }
-            ],
-            translateY: [
-                { value: anime.stagger('-.1rem', { grid: grid, from: 'center', axis: 'y' }) },
-                { value: anime.stagger('.1rem', { grid: grid, from: 'center', axis: 'y' }) }
-            ],
-            duration: 1000,
-            scale: .5,
-            delay: anime.stagger(100, { grid: grid, from: 'center' })
-        })
-        .add({
-            translateX: () => anime.random(-10, 10),
-            translateY: () => anime.random(-10, 10),
-            delay: anime.stagger(10, { from: 'center' })
-        })
-        // .add({
-        //     translateX: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'x' }),
-        //     translateY: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'y' }),
-        //     rotate: 0,
-        //     scaleX: 2.5,
-        //     scaleY: .25,
-        //     delay: anime.stagger(4, { from: 'center' })
-        // })
-        // .add({
-        //     translateX: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'x' }),
-        //     translateY: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'y' }),
-        //     rotate: anime.stagger([-180, 180]),
-        //     scaleX: .25,
-        //     scaleY: 2.5,
-        //     delay: anime.stagger(10, { from: 'first' })
-        // })
-        // .add({
-        //     rotate: anime.stagger([90, 0], { grid: grid, from: 'center' }),
-        //     delay: anime.stagger(50, { grid: grid, from: 'center' })
-        // })
-        // .add({
-        //     translateX: 0,
-        //     translateY: 0,
-        //     scale: .5,
-        //     scaleX: 1,
-        //     rotate: 180,
-        //     duration: 1000,
-        //     delay: anime.stagger(100, { grid: grid, from: 'first' })
-        // })
-        // .add({
-        //     scale: .25,
-        //     scaleY: 1,
-        //     delay: anime.stagger(20, { grid: grid, from: 'center' })
-        // })
-        .add({
-            translateX: (el, i) => {
-                const currentPosition = GetCurrnetPosition(i, colInLargeGrid);
-                const wordPosition = GetWordPostiion(el, i);
-                return -currentPosition.x + wordPosition.x + "rem";
-            },
-            translateY: (el, i) => {
-                const currentPosition = GetCurrnetPosition(i, colInLargeGrid);
-                // log currentPosition
-                console.log(i + ": " + currentPosition.x + ", " + currentPosition.y);
-                const wordPosition = GetWordPostiion(el, i);
-                return -currentPosition.y + wordPosition.y + "rem";
-            },
-            rotate: 0,
-            delay: anime.stagger(4, { from: 'center' })
-        });
+    };
+}
 
-    staggersAnimation.play();
+function GetBirthdayAnimation() {
+    const birthdaydayAnimation = anime.timeline(
+        // {}
+        GetOutroAnimation(".question-birthday", 200)
+    ).add(
+        GetEntryAnimation(".question-birthday", 1000)
+    );
+    return birthdaydayAnimation;
+}
+
+function Setup() {
+    const birthdaydayAnimation = GetBirthdayAnimation();
+    // const todayAnimation = GetTodayAnimation();
+    // const likeThingsAnimation = GetLikeThingAnimation();
+    // const foodDayAnimation = GetFoodAnimation();
+
+    // const easyEquationAnimation = GetEquationAnimation();
+    // const hardEquationAnimation = GetEquationAnimation();
+    // const easyDecodeAnimation = GetEasyDecodeAnimation();
+    // const hardDecodeAnimation = GetHardDeodeAnimation();
+    const congradAnimation = GetCongradAnimation();
+
+    AddEvent(".question-birthday #birthday", "keyup", (e) => {
+        if (e.key === "Enter") {
+            console.log("enter key pressed");
+            birthdaydayAnimation.play();
+            congradAnimation.play();
+        }
+    });
+}
+
+function AddEvent(selector, event, callback) {
+    // query for class
+    const birthdayQuestion = document.querySelector(selector);
+    // add enter key up event listener to question-birthday
+    birthdayQuestion.addEventListener(event, (e) => {
+        e.preventDefault();
+        callback(e);
+    });
 }
 
 
-main(); 
+Setup();
