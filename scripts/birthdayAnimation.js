@@ -1,36 +1,18 @@
-import anime from "./anime.es.js";
-
-function GetEntryAnimation(targets, delay = 100) {
-    return {
-        targets,
-        translateX: 0,
-        translateY: 0,
-        duration: 1000,
-        scale: 1,
-        easing: "easeInOutQuart",
-        delay,
-    };
-}
-
-function GetOutroAnimation(targets, delay = 100) {
-    return {
-        targets,
-        translateY: "-1000%",
-        duration: 1000,
-        easing: "easeInOutQuart",
-        scale: 0.5,
-        delay,
-    };
-}
+import utility from "./utility.js";
 
 function GetBirthdayAnimation() {
-    const birthdaydayAnimation = anime.timeline(
-        // {}
-        GetOutroAnimation(".question-birthday", 200)
-    ).add(
-        GetEntryAnimation(".question-birthday", 1000)
-    );
-    return birthdaydayAnimation;
+    return { 
+        in: utility.GetEntryAnimation(".question-birthday", 2000, 1000),
+        out: utility.GetOutroAnimation(".question-birthday", 0, 1000),
+    };
 }
 
-export default GetBirthdayAnimation();
+function CheckBirthday(birthday) {
+
+    if (birthday !== "5月9號") {
+        return false;
+    }
+    return true;
+}
+
+export default { GetBirthdayAnimation, CheckBirthday};

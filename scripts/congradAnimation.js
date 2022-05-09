@@ -78,44 +78,11 @@ function GetCurrnetPosition(i, colNumber) {
     return { x, y };
 }
 
-function GetEntryAnimation(targets, delay = 100) {
-    return {
-        targets,
-        translateX: 0,
-        translateY: 0,
-        duration: 1000,
-        scale: 1,
-        easing: "easeInOutQuart",
-        delay,
-    };
-}
-
-function GetOutroAnimation(targets, delay = 100) {
-
-    return {
-        targets,
-        translateY: "-1000%",
-        duration: 1000,
-        easing: "easeInOutQuart",
-        scale: 0.5,
-        delay,
-    };
-}
-
-function GetBirthdayAnimation() {
-    const birthdaydayAnimation = anime.timeline(
-        GetOutroAnimation(".question-birthday", 0)
-    ).add(
-        GetEntryAnimation(".question-birthday", 1000)
-    );
-    return birthdaydayAnimation;
-}
-
 function GetCongradAnimation() {
     const staggerVisualizerEl = document.querySelector('.stagger-visualizer');
     const fragment = document.createDocumentFragment();
 
-    const numberOfElements = 137;
+    const numberOfElements = 176;
 
     for (let i = 0; i < numberOfElements; i++) {
         fragment.appendChild(document.createElement('div'));
@@ -126,29 +93,29 @@ function GetCongradAnimation() {
     const staggersAnimation = anime.timeline({
         targets: '.stagger-visualizer div',
         easing: 'easeInOutSine',
-        delay: anime.stagger(50),
-        loop: true,
-        direction: 'alternate',
+        delay: anime.stagger(2000 + 50),
+        // loop: true,
+        // direction: 'alternate',
         autoplay: false
     })
-        // .add({
-        //     translateX: [
-        //         { value: anime.stagger('-.1rem', { grid: grid, from: 'center', axis: 'x' }) },
-        //         { value: anime.stagger('.1rem', { grid: grid, from: 'center', axis: 'x' }) }
-        //     ],
-        //     translateY: [
-        //         { value: anime.stagger('-.1rem', { grid: grid, from: 'center', axis: 'y' }) },
-        //         { value: anime.stagger('.1rem', { grid: grid, from: 'center', axis: 'y' }) }
-        //     ],
-        //     duration: 1000,
-        //     scale: .5,
-        //     delay: anime.stagger(100, { grid: grid, from: 'center' })
-        // })
-        // .add({
-        //     translateX: () => anime.random(-10, 10),
-        //     translateY: () => anime.random(-10, 10),
-        //     delay: anime.stagger(10, { from: 'center' })
-        // })
+        .add({
+            translateX: 0,
+            translateY: 0,
+            delay: anime.stagger(100, { grid: grid, from: 'center' })
+        })
+        .add({
+            translateX: [
+                { value: anime.stagger('-.1rem', { grid: grid, from: 'center', axis: 'x' }) },
+                { value: anime.stagger('.1rem', { grid: grid, from: 'center', axis: 'x' }) }
+            ],
+            translateY: [
+                { value: anime.stagger('-.1rem', { grid: grid, from: 'center', axis: 'y' }) },
+                { value: anime.stagger('.1rem', { grid: grid, from: 'center', axis: 'y' }) }
+            ],
+            duration: 1000,
+            scale: .5,
+            delay: anime.stagger(100, { grid: grid, from: 'center' })
+        })
         // .add({
         //     translateX: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'x' }),
         //     translateY: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'y' }),
@@ -157,6 +124,11 @@ function GetCongradAnimation() {
         //     scaleY: .25,
         //     delay: anime.stagger(4, { from: 'center' })
         // })
+        .add({
+            translateX: () => anime.random(-40, 40),
+            translateY: () => anime.random(-40, 40),
+            delay: anime.stagger(10, { from: 'center' })
+        })
         // .add({
         //     translateX: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'x' }),
         //     translateY: anime.stagger('.25rem', { grid: grid, from: 'center', axis: 'y' }),
@@ -165,10 +137,10 @@ function GetCongradAnimation() {
         //     scaleY: 2.5,
         //     delay: anime.stagger(10, { from: 'first' })
         // })
-        // .add({
-        //     rotate: anime.stagger([90, 0], { grid: grid, from: 'center' }),
-        //     delay: anime.stagger(50, { grid: grid, from: 'center' })
-        // })
+        .add({
+            rotate: anime.stagger([90, 0], { grid: grid, from: 'center' }),
+            delay: anime.stagger(50, { grid: grid, from: 'center' })
+        })
         // .add({
         //     translateX: 0,
         //     translateY: 0,
@@ -196,7 +168,11 @@ function GetCongradAnimation() {
                 return -currentPosition.y + wordPosition.y + "rem";
             },
             rotate: 0,
-            delay: anime.stagger(4, { from: 'center' })
+            scale: 1,
+            scaleX: 1,
+            scaleY: 1,
+            delay: anime.stagger(4, { from: 'center' }),
+            endDelay: 1000,
         });
     return staggersAnimation;
 }
