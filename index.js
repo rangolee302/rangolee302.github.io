@@ -32,7 +32,7 @@ function Setup() {
     const congradAnimation = GetCongradAnimation();
 
     AddEvent(".question-easy-equation #answer", "keyup", (e) => {
-        if (e.key === "Enter") {
+        if (e.keyCode === 13) {
             const result = easyEquation.CheckAnswer(e.target.value);
             anime(GetResultAnimation(result)).play();
             anime(easyEquationAnimation.out).play();
@@ -47,7 +47,7 @@ function Setup() {
     });
 
     AddEvent(".question-hard-equation #answer", "keyup", (e) => {
-        if (e.key === "Enter") {
+        if (e.keyCode === 13) {
             const result = hardEquation.CheckAnswer(e.target.value);
             anime(GetResultAnimation(result)).play();
             anime(hardEquationAnimation.out).play();
@@ -61,7 +61,7 @@ function Setup() {
     });
 
     AddEvent(".question-birthday #birthday", "keyup", (e) => {
-        if (e.key === "Enter") {
+        if (e.keyCode === 13) {
             const result = birthday.CheckBirthday(e.target.value);
             anime(GetResultAnimation(result)).play();
             anime(birthdaydayAnimation.out).play();
@@ -76,7 +76,7 @@ function Setup() {
     });
 
     AddEvent(".question-today #today", "keyup", (e) => {
-        if (e.key === "Enter") {
+        if (e.keyCode === 13) {
             const result = birthday.CheckBirthday(e.target.value);
             anime(GetResultAnimation(result)).play();
 
