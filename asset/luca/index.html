@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Flippyland</title>
+    <title>Luca & Friends Move Learning</title>
   </head>
   <body>
     <main>
@@ -34,7 +34,7 @@
           <div class="col-4 ">
           </div>
           <div class="col-4 pt-5">
-            <img src="../image/flippyland/Icon.png" class="mx-auto rounded d-block img-fluid" alt="Responsive image">
+            <img src="../image/luca/icon.jpg" class="mx-auto rounded d-block img-fluid" alt="Responsive image">
           </div>
           <div class="col-4">
           </div>
@@ -44,16 +44,16 @@
         <div class="row m-5">
            <div class="col-12 text-center">  
               <h1>
-                Flippyland
+                Luca & Friends Move Learning
               </h1>
               <h5 class="text-secondary font-weight-light">
-                Casual Block-rolling mobile game 
+                A Learning and AR game for kids
               </h5>
               <h5 >
-                <a class="navbar-brand text-gray" href="https://apps.apple.com/hk/app/flippyland/id1549185659">
+                <a class="navbar-brand text-gray" href="https://apps.apple.com/us/app/luca-friends-move-learn-play/id1599675900">
                   Apple App Store
                 </a>
-                <a class="navbar-brand text-gray" href="https://play.google.com/store/apps/details?id=com.hedgeHog.test&hl=en_CA&gl=US">
+                <a class="navbar-brand text-gray" href="https://play.google.com/store/apps/details?id=com.Gofa.Luca.learning.rhymes.kids.stem.preschool.kindergarten.english.fitnessapp.io&hl=en_US&gl=US">
                   Google Play
                 </a>
               </h5>
@@ -65,16 +65,16 @@
           <div class="col-12">
             <div class="row d-flex text-center">
                 <div class="col-4">
-                  <img src="../image/flippyland/about.gif" class="rounded img-fluid" alt="Responsive image">
+                  <img src="../image/luca/about.jpg" class="rounded img-fluid" alt="Responsive image">
                 </div>
                 <div class="align-self-center lead col-6">
                 <p>
                     <i class="fas fa-h2    ">About</i>
                 </p>
                 <p>
-                    Flippyland is a puzzle game launched on Google Play and Apple App Store.
-                    It is developed using Unity, FireBase, Google Play Games and Apple Game Center.
-                    The only goal of the game is to flip the block into position.
+                    Luca & Friends Move Learning is a educational game that provide a AR enviroment for kids
+                    to learn. It make use of AI computer vision to track the movement of the user and combine with
+                    the AR environment to provide a fun and interactive experience.
                 </p>
                 </div>
                 <div class="align-self-center lead col-2"></div>
@@ -88,42 +88,18 @@
                 <div class="align-self-center lead col-2"></div>
                 <div class="align-self-center lead col-6">
                   <p>
-                    <i class="fas fa-h2    ">Prototype</i>
+                    <i class="fas fa-h2    ">Computer Vision</i>
                   </p>
                   <p>
-                    The early draft of the game aims at testing the game play.
-                    During the development process, it was found that perspective views are not as easy as orthographics views when playing.
-                    Also, free rotation of camera and swiping screens was a touble for players to control.
-                    For better game play experience, I adopted buttons control finally. 
+                    One of the biggest challenges of this project is to make the computer vision work.
+                    To do so we use a Google powered SDK Media-pipe to capture user movement. In partictular,
+                    we use Pose model to capture some key landmarks of the user, and combine with the gameplay to
+                    simulate the AR enviroment.
                   </p>
                 </div>
                 <div class="col-4">
-                    <img src="../image/flippyland/prototype.gif" class="rounded img-fluid align-self-center" alt="Responsive image">
+                    <img src="../image/luca/media-pipe.png" class="rounded img-fluid align-self-center" alt="Responsive image">
                 </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row p-5">
-          <div class="col-12">
-            <div class="d-flex row text-center">
-                <div class="align-self-center lead col-2"></div>
-                <div class="align-self-center lead col-6">
-                  <p>
-                    <i class="fas fa-h2    ">Google Ads</i>
-                  </p>
-                  <p>
-                    A Google Ads campaign has been used to promote Flippyland .
-                    After some market research, the campaign was run in South East Asia countries
-                    such as India, Phillipine and Malaysia. In Google Ads's report, most of the engaged 
-                    users were from India.
-                  </p>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-2">
-                    <img src="../image/flippyland/ads.png" class="rounded img-fluid align-self-center" alt="Responsive image">
-                </div>
-                <div class="col-1"></div>
             </div>
           </div>
         </div>
@@ -137,13 +113,14 @@
                     <i class="fas fa-h2    ">Firebase</i>
                   </p>
                   <p>
-                    With Firebase analytics, Flippland is able to track user activities in game.
-                    These data will be used to analysis users' behavior and adjust our content 
-                    accordingly.
+                    The app is built using Firebase as a backend. With Firebase, the data is stored in a cloud database.
+                    Users can create their account and login. Their account can also link to Google, Facebook or their email
+                    in order to login at a different device. Other user data such as playing progress and achievements are stored in the database.
+                    For parents to estimate their children's progress.
                   </p>
                 </div>
                 <div class="col-4">
-                    <img src="../image/flippyland/logo-vertical.png" class="rounded img-fluid align-self-center" alt="Responsive image">
+                    <img src="../image/luca/firebase.png" class="rounded img-fluid align-self-center" alt="Responsive image">
                 </div>
             </div>
           </div>
