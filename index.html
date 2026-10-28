@@ -1,176 +1,343 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <title>Welcome, avenger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rango Lee, Hong Kong Unity game developer</title>
+  <meta name="description" content="Portfolio of Speaking Dead, Flippyland, Luca and Friends, Survival Camping, and VR Monopoly. Email Rango Lee about a Unity project.">
+  <link rel="canonical" href="https://rangolee302.github.io/">
+  <meta property="og:title" content="Rango Lee, Hong Kong Unity game developer">
+  <meta property="og:description" content="Five Unity writeups, including store releases. Email about a project.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rangolee302.github.io/">
+  <meta property="og:image" content="https://rangolee302.github.io/asset/image/speaking-dead/cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Manrope", "sans-serif"] },
+          maxWidth: { copy: "680px" }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is this page for?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Studios and producers who want to read Rango Lee's Unity work before sending a brief." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which projects are on a store?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Luca and Friends is linked to the App Store and Google Play. Flippyland is linked to Google Play." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the other projects finished products?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Speaking Dead, Survival Camping, and VR Monopoly are documented builds. Survival Camping is still a prototype." }
+      }
+    ]
+  }
+  </script>
 </head>
+<body class="bg-black text-white antialiased">
+  <a class="skip-link" href="#content">Skip to content</a>
 
-<body>
-  <nav class="p-3 fixed-top bg-dark">
-    <div class="row">
-      <div class="col-md-4 col-12"></div>
-      <div class="col-md-4 col-12 text-center">
-        <a href="asset/game-gallery/index.html">
-          <h1 class="navbar-brand text-light">
-            Project
-          </h1>
-        </a>
+  <header class="fixed inset-x-0 top-4 z-40 flex justify-center px-4">
+    <nav class="nav-shell flex items-center gap-2 rounded-full px-3 py-2" aria-label="Portfolio">
+      <a href="#content" class="rounded-lg px-3 py-2 text-sm font-semibold" aria-current="page">Rango Lee</a>
+      <div class="hidden items-center gap-1 md:flex">
+        <a class="rounded-lg px-3 py-2 text-sm font-semibold text-white/80 hover:bg-[#272727] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#work">Work</a>
+        <a class="rounded-lg px-3 py-2 text-sm font-semibold text-white/80 hover:bg-[#272727] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#approach">Approach</a>
+        <a class="rounded-lg px-3 py-2 text-sm font-semibold text-white/80 hover:bg-[#272727] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#questions">Questions</a>
       </div>
-      <div class="col-md-4 col-12"></div>
-    </div>
-  </nav>
-  <main>
-    <div class="container">
+      <button class="menu-toggle rounded-lg p-2 md:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
 
-      <div class="row m-5">
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-30 flex-col justify-end bg-black/90 px-6 pb-16 pt-24 backdrop-blur-xl md:hidden" data-mobile-menu hidden>
+    <a class="mobile-link block py-3 text-3xl font-semibold" href="#work">Work</a>
+    <a class="mobile-link block py-3 text-3xl font-semibold" href="#approach">Approach</a>
+    <a class="mobile-link block py-3 text-3xl font-semibold" href="#questions">Questions</a>
+    <a class="mobile-link block py-3 text-3xl font-semibold" href="#brief">Email about a project</a>
+    <a class="mobile-link block py-3 text-base font-semibold text-white/70" href="index.html" aria-current="page">Portfolio, current page</a>
+  </div>
 
-        <div class="col-md-4 col-12">
-        </div>
-        <div class="col-md-4 col-12 pt-5">
-          <img src="asset/image/cover.png" class="mx-auto rounded d-block img-fluid" alt="Responsive image">
-        </div>
-        <div class="col-md-4 col-12">
-        </div>
-
-      </div>
-
-      <div class="row m-5">
-        <div class="col-12 text-center">
-          <h1>
-            Rango Lee
-          </h1>
-          <h5 class="text-secondary font-weight-light">
-            Hong Kong Game Developer
-          </h5>
-        </div>
-      </div>
-
-      <div class="row m-5">
-        <div class="col-12 text-center">
-          <h1>
-            Game Projects
-          </h1>
-        </div>
-      </div>
-
-      <div class="row m-5">
-        <div class="col-md-4 col-12 mb-3">
-          <a href="asset/speaking-dead/index.html" class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="asset/image/speaking-dead/cover-thumb.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Speaking Dead</h4>
-                <p class="card-text">ASR mobile game</p>
-              </div>
-            </div>
+  <main id="content">
+    <section class="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-32 md:grid-cols-2 md:px-6 md:pt-40">
+      <div class="max-w-copy">
+        <p class="mb-4 text-sm font-semibold text-white/70">Hong Kong game developer</p>
+        <h1 class="text-5xl font-semibold leading-none text-balance md:text-6xl">
+          <span class="hero-grad">Playable games<br>for studios hiring<br>in Hong Kong</span>
+        </h1>
+        <p class="mt-6 max-w-copy text-lg text-pretty text-white/75">
+          Rango Lee builds Unity games you can open and judge. The public set covers offline speech, a store puzzle, AR lessons for kids, a co op survival prototype, and a VR monopoly made with a team.
+        </p>
+        <div class="mt-8">
+          <a class="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-base font-semibold text-black transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#e7e7e7] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#brief">
+            Email about a project
+            <i class="ph ph-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
-
-        <div class="col-md-4 col-12 mb-3">
-          <a href="asset/flippyland/index.html" class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="asset/image/flippyland/Icon.png" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Flippyland</h4>
-                <p class="card-text">Puzzle mobile game</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12 mb-3">
-          <a href="asset/luca/index.html" class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="asset/image/luca/icon.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Luca & Friends</h4>
-                <p class="card-text">AR Educational game</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
+        <p class="mt-6 text-sm text-pretty text-white/70">Luca &amp; Friends is on the App Store and Google Play. Flippyland is on Google Play.</p>
       </div>
-
-
-      <div class="row m-5">
-        <!-- <div class="col-md-4 col-12">  
-              <div class="card">
-                <div class="p-5">
-                    <img class="card-img-top" src="asset/image/maintenance.png" alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">School Fun</h4>
-                  <p class="card-text">mobile game that publish for children</p>
-                </div>
-              </div>
-          </div> -->
-
-        <div class="col-md-4 col-12 mb-3">
-          <a href="asset/survival-camp/index.html" class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="asset/image/survival-camp/cover.png" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Survival Camping</h4>
-                <p class="card-text">multiplayer survival game</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12 mb-3">
-          <a href="asset/vr-monopoly/index.html" class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="asset/image/vr-mono/Capture.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">VR Monopoly</h4>
-                <p class="card-text">The name describe itself</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12 mb-3">
-          <div class="card">
-            <div class="p-5">
-              <!-- <a href="" class="card-link"> -->
-              <img class="card-img-top" src="asset/image/maintenance.png" alt="Card image cap">
-              <!-- </a> -->
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">There are more Projects!</h4>
-              <!-- <h4 class="card-title">Game Jams / Hackathon</h4> -->
-              <p class="card-text">Contact rangolee302@gmail.com for details</p>
-            </div>
+      <div class="grid grid-cols-2 gap-3">
+        <figure class="col-span-2 overflow-hidden rounded-2xl bg-[#181818] p-2">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-video w-full object-cover" src="asset/image/speaking-dead/cover.jpg" alt="Speaking Dead cover art, a speech recognition mobile game">
           </div>
-        </div>
-
+        </figure>
+        <figure class="overflow-hidden rounded-2xl bg-[#181818] p-2">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-square w-full object-cover" src="asset/image/flippyland/about.gif" alt="Flippyland gameplay, a block rolling puzzle">
+          </div>
+        </figure>
+        <figure class="overflow-hidden rounded-2xl bg-[#181818] p-2">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-square w-full object-cover" src="asset/image/luca/about.jpg" alt="Luca and Friends, an AR learning game for kids">
+          </div>
+        </figure>
       </div>
+    </section>
 
+    <section class="mx-auto max-w-6xl px-4 py-20 md:px-6" data-reveal>
+      <div class="max-w-copy">
+        <h2 class="text-3xl font-semibold text-balance">A producer should not have to guess what was built</h2>
+        <p class="mt-4 text-lg text-pretty text-white/75">Most portfolios stop at a title and a genre. These pages keep the input, the engine, and the part that was hard, next to the picture of the build.</p>
+      </div>
+      <ul class="mt-10 grid gap-4 md:grid-cols-2">
+        <li class="rounded-2xl bg-[#181818] p-6">
+          <i class="ph ph-microphone text-2xl" aria-hidden="true"></i>
+          <h3 class="mt-4 text-xl font-semibold">Speech without a network</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">Speaking Dead scores a spoken word with an on device library, so play does not wait on a connection.</p>
+        </li>
+        <li class="rounded-2xl bg-[#181818] p-6">
+          <i class="ph ph-storefront text-2xl" aria-hidden="true"></i>
+          <h3 class="mt-4 text-xl font-semibold">A puzzle that reached a store</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">Flippyland is on Google Play. After playtests, free camera swipes were replaced with buttons because the first control was hard to read.</p>
+        </li>
+        <li class="rounded-2xl bg-[#181818] p-6">
+          <i class="ph ph-person-simple-run text-2xl" aria-hidden="true"></i>
+          <h3 class="mt-4 text-xl font-semibold">Movement as the lesson</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">Luca &amp; Friends uses MediaPipe pose landmarks inside an AR lesson. Firebase keeps accounts and progress for a parent.</p>
+        </li>
+        <li class="rounded-2xl bg-[#181818] p-6">
+          <i class="ph ph-users-three text-2xl" aria-hidden="true"></i>
+          <h3 class="mt-4 text-xl font-semibold">Shared play, written down</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">VR Monopoly takes Kinect motion into a Unity board and syncs a LAN match. Survival Camping is a co op prototype still in prototype stage.</p>
+        </li>
+      </ul>
+    </section>
 
+    <section class="mx-auto max-w-copy px-4 py-24 md:px-6" aria-label="Tagline">
+      <p class="text-4xl font-semibold leading-tight text-balance md:text-5xl">
+        <span data-word class="tagline-word">The</span>
+        <span data-word class="tagline-word">useful</span>
+        <span data-word class="tagline-word">part</span>
+        <span data-word class="tagline-word">is</span>
+        <span data-word class="tagline-word">not</span>
+        <span data-word class="tagline-word">the</span>
+        <span data-word class="tagline-word">pitch.</span>
+        <br>
+        <span data-word class="tagline-word">It</span>
+        <span data-word class="tagline-word">is</span>
+        <span data-word class="tagline-word">a</span>
+        <span data-word class="tagline-word">build</span>
+        <span data-word class="tagline-word">someone</span>
+        <span data-word class="tagline-word">else</span>
+        <span data-word class="tagline-word">can</span>
+        <span data-word class="tagline-word">play.</span>
+      </p>
+    </section>
 
-    </div>
+    <section id="work" class="mx-auto max-w-6xl px-4 py-16 md:px-6" data-reveal>
+      <div class="max-w-copy">
+        <h2 class="text-3xl font-semibold text-balance">Five writeups you can open now</h2>
+        <p class="mt-4 text-lg text-pretty text-white/75">Each card goes to the existing project page. Nothing here is a placeholder title.</p>
+      </div>
+      <div class="mt-10 grid gap-4">
+        <article class="grid items-center gap-4 rounded-2xl bg-[#181818] p-2 md:grid-cols-[240px_1fr]">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-video w-full object-cover md:aspect-square" src="asset/image/speaking-dead/cover-thumb.jpg" alt="Speaking Dead thumbnail">
+          </div>
+          <div class="px-4 py-4">
+            <p class="text-sm font-semibold text-white/60">01</p>
+            <h3 class="mt-2 text-2xl font-semibold">Speaking Dead</h3>
+            <p class="mt-2 max-w-copy text-base text-pretty text-white/75">A Unity mobile game where the score comes from saying the right word. Recognition runs from a compiled plugin, including when the phone is offline.</p>
+            <a class="mt-4 inline-flex items-center gap-2 text-base font-semibold underline decoration-white/30 underline-offset-4 hover:decoration-white" href="asset/speaking-dead/index.html">Open writeup</a>
+          </div>
+        </article>
+        <article class="grid items-center gap-4 rounded-2xl bg-[#181818] p-2 md:grid-cols-[240px_1fr]">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-square w-full object-contain p-6" src="asset/image/flippyland/Icon.png" alt="Flippyland app icon">
+          </div>
+          <div class="px-4 py-4">
+            <p class="text-sm font-semibold text-white/60">02</p>
+            <h3 class="mt-2 text-2xl font-semibold">Flippyland</h3>
+            <p class="mt-2 max-w-copy text-base text-pretty text-white/75">A block rolling puzzle. The only goal is to flip the block into place. Built in Unity with Firebase, Google Play Games, and Apple Game Center.</p>
+            <a class="mt-4 inline-flex items-center gap-2 text-base font-semibold underline decoration-white/30 underline-offset-4 hover:decoration-white" href="asset/flippyland/index.html">Open writeup</a>
+          </div>
+        </article>
+        <article class="grid items-center gap-4 rounded-2xl bg-[#181818] p-2 md:grid-cols-[240px_1fr]">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-square w-full object-cover" src="asset/image/luca/icon.jpg" alt="Luca and Friends app icon">
+          </div>
+          <div class="px-4 py-4">
+            <p class="text-sm font-semibold text-white/60">03</p>
+            <h3 class="mt-2 text-2xl font-semibold">Luca &amp; Friends</h3>
+            <p class="mt-2 max-w-copy text-base text-pretty text-white/75">An AR learning game for kids. Pose tracking feeds the lesson, and account progress is stored so a parent can see it later.</p>
+            <a class="mt-4 inline-flex items-center gap-2 text-base font-semibold underline decoration-white/30 underline-offset-4 hover:decoration-white" href="asset/luca/index.html">Open writeup</a>
+          </div>
+        </article>
+        <article class="grid items-center gap-4 rounded-2xl bg-[#181818] p-2 md:grid-cols-[240px_1fr]">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-video w-full object-cover md:aspect-square" src="asset/image/survival-camp/cover.png" alt="Survival Camping cover">
+          </div>
+          <div class="px-4 py-4">
+            <p class="text-sm font-semibold text-white/60">04</p>
+            <h3 class="mt-2 text-2xl font-semibold">Survival Camping</h3>
+            <p class="mt-2 max-w-copy text-base text-pretty text-white/75">A co op survival prototype in Unity. The design pushes resource collection toward resource management inside a single match.</p>
+            <a class="mt-4 inline-flex items-center gap-2 text-base font-semibold underline decoration-white/30 underline-offset-4 hover:decoration-white" href="asset/survival-camp/index.html">Open writeup</a>
+          </div>
+        </article>
+        <article class="grid items-center gap-4 rounded-2xl bg-[#181818] p-2 md:grid-cols-[240px_1fr]">
+          <div class="relative overflow-hidden rounded-lg bg-[#272727]">
+            <div class="skel absolute inset-0" data-skel></div>
+            <img class="aspect-video w-full object-cover md:aspect-square" src="asset/image/vr-mono/Capture.jpg" alt="VR Monopoly in play">
+          </div>
+          <div class="px-4 py-4">
+            <p class="text-sm font-semibold text-white/60">05</p>
+            <h3 class="mt-2 text-2xl font-semibold">VR Monopoly</h3>
+            <p class="mt-2 max-w-copy text-base text-pretty text-white/75">A team build. Kinect motion and hand gestures drive a first person monopoly in Unity, with the image sent to a VR device and match state shared over LAN.</p>
+            <a class="mt-4 inline-flex items-center gap-2 text-base font-semibold underline decoration-white/30 underline-offset-4 hover:decoration-white" href="asset/vr-monopoly/index.html">Open writeup</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach" class="mx-auto max-w-6xl px-4 py-20 md:px-6" data-reveal>
+      <div class="max-w-copy">
+        <h2 class="text-3xl font-semibold text-balance">Three steps from email to a page you can open</h2>
+      </div>
+      <ol class="mt-10 grid gap-4 md:grid-cols-3">
+        <li class="rounded-2xl bg-[#1f1f1f] p-6">
+          <p class="text-sm font-semibold text-white/60">Step 1</p>
+          <h3 class="mt-3 text-xl font-semibold">Send the brief</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">Name the platform and the input that matters: voice, motion, touch, or a shared match.</p>
+        </li>
+        <li class="rounded-2xl bg-[#1f1f1f] p-6">
+          <p class="text-sm font-semibold text-white/60">Step 2</p>
+          <h3 class="mt-3 text-xl font-semibold">Match it to a build</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">The reply points at the closest writeup already on this site, or asks for the missing constraint.</p>
+        </li>
+        <li class="rounded-2xl bg-[#1f1f1f] p-6">
+          <p class="text-sm font-semibold text-white/60">Step 3</p>
+          <h3 class="mt-3 text-xl font-semibold">Read before you book time</h3>
+          <p class="mt-2 text-base text-pretty text-white/75">Open the project page. If it is not the right shape, say so in the thread. No call is started by the form.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="questions" class="mx-auto max-w-copy px-4 py-16 md:px-6" data-reveal>
+      <h2 class="text-3xl font-semibold text-balance">Questions studios ask first</h2>
+      <div class="mt-8 grid gap-2">
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Who is this page for?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">Studios and producers who want to see Unity work before they write. It is not a store page for players.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">What should the first email say?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">Platform, the input you care about, and whether you need a prototype or something closer to a store build.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Which projects are on a store?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">Luca &amp; Friends links to the App Store and Google Play from its writeup. Flippyland links to Google Play from its writeup.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Are the others finished products?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">No. Speaking Dead and VR Monopoly are documented builds. Survival Camping is still a prototype.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Is every project solo?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">No. The VR Monopoly and Luca pages describe team work. Flippyland records a control decision in the first person.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Can I see work that is not listed?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">Yes. The older site asked people to email rangolee302@gmail.com for projects that are not public here.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Does the form book a call?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">No. It opens a mail draft. You can close that draft. Nothing is scheduled.</p>
+        </details>
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none text-lg font-semibold">Where is Rango based?</summary>
+          <p class="mt-3 text-base text-pretty text-white/75">Hong Kong.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="brief" class="mx-auto max-w-copy px-4 py-20 md:px-6" data-reveal>
+      <h2 class="text-4xl font-semibold text-balance">Email about a project</h2>
+      <p class="mt-4 text-lg text-pretty text-white/75">No call is booked by this form. It checks the fields, then opens a draft to rangolee302@gmail.com. Close the draft if you are not ready.</p>
+      <form class="mt-8 rounded-2xl bg-[#181818] p-6" data-brief novalidate>
+        <div class="grid gap-4">
+          <label class="block">
+            <span class="text-sm font-semibold">Name</span>
+            <input class="mt-2 w-full rounded-lg bg-[#272727] px-3 py-2 text-base text-white placeholder:text-white/40" name="name" type="text" autocomplete="name" required>
+            <span class="field-error mt-2 text-sm text-white/80" data-error="name">Add your name.</span>
+          </label>
+          <label class="block">
+            <span class="text-sm font-semibold">Email</span>
+            <input class="mt-2 w-full rounded-lg bg-[#272727] px-3 py-2 text-base text-white placeholder:text-white/40" name="email" type="email" autocomplete="email" required>
+            <span class="field-error mt-2 text-sm text-white/80" data-error="email">Enter an email address with a domain.</span>
+          </label>
+          <label class="block">
+            <span class="text-sm font-semibold">What should be built</span>
+            <textarea class="mt-2 min-h-32 w-full rounded-lg bg-[#272727] px-3 py-2 text-base text-white placeholder:text-white/40" name="note" required placeholder="Platform, input, and whether you need a prototype or a store build."></textarea>
+            <span class="field-error mt-2 text-sm text-white/80" data-error="note">Add a short note about the project.</span>
+          </label>
+        </div>
+        <button class="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-base font-semibold text-black transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#e7e7e7] active:scale-[0.98] disabled:opacity-60" type="submit">Email about a project</button>
+        <p class="mt-4 min-h-6 text-sm text-pretty text-white/75" data-status role="status"></p>
+        <p class="mt-2 text-sm text-white/60">If the mail app does not open, write to rangolee302@gmail.com directly.</p>
+      </form>
+    </section>
   </main>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <footer class="border-t border-white/10 px-4 py-10 md:px-6">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
+      <p>Rango Lee, Hong Kong</p>
+      <nav class="flex flex-wrap gap-4" aria-label="Footer">
+        <a class="font-semibold underline decoration-white/30 underline-offset-4" href="index.html" aria-current="page">Portfolio</a>
+        <a class="font-semibold underline decoration-white/30 underline-offset-4" href="privacy.html">Privacy</a>
+        <a class="font-semibold underline decoration-white/30 underline-offset-4" href="terms.html">Terms</a>
+        <a class="font-semibold underline decoration-white/30 underline-offset-4" href="mailto:rangolee302@gmail.com">rangolee302@gmail.com</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="site.js"></script>
 </body>
-
 </html>
